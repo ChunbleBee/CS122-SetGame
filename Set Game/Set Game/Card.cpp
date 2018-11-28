@@ -1,6 +1,8 @@
 #include "Card.h"
 
 Card::Card(int shape, int color, int fill, int num, int size, string image) {
+	mSelection = false;
+
 	this->setShape(shape);
 	this->setColor(color);
 	this->setFill(fill);
@@ -55,6 +57,14 @@ void Card::setSize(int size) {
 
 void Card::setImage(string img) {
 	this->mImage = img;
+}
+
+bool Card::isSelected() {
+	return this->mSelection;
+}
+
+void Card::switchSelected() {
+	this->mSelection = !this->mSelection;
 }
 
 ostream & operator << (ostream & stm, Card & c) {

@@ -2,7 +2,6 @@
 #include <math.h>
 #include <iostream>
 #include <vector>
-#include <windows.h>
 #include "Card.cpp"
 
 using std::vector;

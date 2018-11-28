@@ -7,7 +7,7 @@ using std::string;
 using std::ostream;
 using std::endl;
 
-class Card {
+class Card : public sf::Drawable {
 private:
 	//shape, color, fill, number, size
 	int mAttributes [5];
@@ -34,6 +34,7 @@ public:
 	void switchSelected();
 
 	bool isSelected();
+
 };
 
 ostream & operator << (ostream & stm, Card & c);

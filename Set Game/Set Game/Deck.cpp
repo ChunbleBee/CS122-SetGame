@@ -1,6 +1,3 @@
-#include "Deck.h"
-
-
 void Deck::buildDeck(int deckSize, int difficulty) {
 	//shape, color, fill, number
 	//Each given value 1-3
