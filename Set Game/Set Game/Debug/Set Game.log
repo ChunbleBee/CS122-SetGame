@@ -1,0 +1,24 @@
+﻿  main.cpp
+  Deck.cpp
+c:\users\maqz\onedrive - washington state university (email.wsu.edu)\cpt_s 122\pa9\set game\set game\deck.h(37): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\maqz\onedrive - washington state university (email.wsu.edu)\cpt_s 122\pa9\set game\set game\deck.h(39): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\onedrive - washington state university (email.wsu.edu)\cpt_s 122\pa9\set game\set game\deck.h(50): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
+c:\users\maqz\onedrive - washington state university (email.wsu.edu)\cpt_s 122\pa9\set game\set game\deck.h(54): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\onedrive - washington state university (email.wsu.edu)\cpt_s 122\pa9\set game\set game\deck.h(62): warning C4018: '<': signed/unsigned mismatch
+  Card.cpp
+  Generating Code...
+Deck.obj : error LNK2005: "public: __thiscall Card::Card(int,int,int,int,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (??0Card@@QAE@HHHHHV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) already defined in Card.obj
+Deck.obj : error LNK2005: "class std::basic_ostream<char,struct std::char_traits<char> > & __cdecl operator<<(class std::basic_ostream<char,struct std::char_traits<char> > &,class Card &)" (??6@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AAV01@AAVCard@@@Z) already defined in Card.obj
+Deck.obj : error LNK2005: "public: int __thiscall Card::getColor(void)" (?getColor@Card@@QAEHXZ) already defined in Card.obj
+Deck.obj : error LNK2005: "public: int __thiscall Card::getFill(void)" (?getFill@Card@@QAEHXZ) already defined in Card.obj
+Deck.obj : error LNK2005: "public: class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __thiscall Card::getImage(void)" (?getImage@Card@@QAE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ) already defined in Card.obj
+Deck.obj : error LNK2005: "public: int __thiscall Card::getNumber(void)" (?getNumber@Card@@QAEHXZ) already defined in Card.obj
+Deck.obj : error LNK2005: "public: int __thiscall Card::getShape(void)" (?getShape@Card@@QAEHXZ) already defined in Card.obj
+Deck.obj : error LNK2005: "public: int __thiscall Card::getSize(void)" (?getSize@Card@@QAEHXZ) already defined in Card.obj
+Deck.obj : error LNK2005: "public: void __thiscall Card::setColor(int)" (?setColor@Card@@QAEXH@Z) already defined in Card.obj
+Deck.obj : error LNK2005: "public: void __thiscall Card::setFill(int)" (?setFill@Card@@QAEXH@Z) already defined in Card.obj
+Deck.obj : error LNK2005: "public: void __thiscall Card::setImage(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?setImage@Card@@QAEXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) already defined in Card.obj
+Deck.obj : error LNK2005: "public: void __thiscall Card::setNumber(int)" (?setNumber@Card@@QAEXH@Z) already defined in Card.obj
+Deck.obj : error LNK2005: "public: void __thiscall Card::setShape(int)" (?setShape@Card@@QAEXH@Z) already defined in Card.obj
+Deck.obj : error LNK2005: "public: void __thiscall Card::setSize(int)" (?setSize@Card@@QAEXH@Z) already defined in Card.obj
+C:\Users\Maqz\OneDrive - Washington State University (email.wsu.edu)\CPT_S 122\PA9\Set Game\Debug\Set Game.exe : fatal error LNK1169: one or more multiply defined symbols found
