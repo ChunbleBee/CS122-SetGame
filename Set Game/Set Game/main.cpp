@@ -1,9 +1,13 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "Deck.h"
+#include "PlayGame.h"
 
 int main()
 {
+	PlayGame SET;
+
+	SET.playGame();
+
 	Deck d;
 	// The main function is just an experemental mess right now. 
 	// TODO: make this better. yep.
@@ -12,7 +16,7 @@ int main()
 
 	c.setImage("Set Cards/r2wd.PNG");
 
-	sf::RenderWindow window(sf::VideoMode(1280, 720), "Set");
+	sf::RenderWindow window(sf::VideoMode(1280, 720), "Set Game");
 	//sf::CircleShape shape(100.f);
 	//shape.setFillColor(sf::Color::Green);
 

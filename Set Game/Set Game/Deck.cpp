@@ -51,10 +51,10 @@ Deck::Deck(int difficulty) {
 		for (int i = 0; i < mCardDeck.size(); i++) {
 			cout << mCardDeck[i] << endl;
 		}
-	}
+}
 
-	Card Deck::dealCard() {
-		Card out = mCardDeck.back();
-		mCardDeck.pop_back();
-		return out;
-	}
+Card Deck::dealCard() {
+	Card out = mCardDeck.back();
+	mCardDeck.pop_back();
+	return out;
+}

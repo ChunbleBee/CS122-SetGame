@@ -20,13 +20,14 @@ public:
 	void buildImageFileName();
 
 	Card(int shape = 0, int color = 0, int fill = 0, int num = 0, int size = 0, string image = "");
+	Card(Card const & copyCard);
 
-	int getShape();
-	int getColor();
-	int getFill();
-	int getNumber();
-	int getSize();
-	string getImage();
+	int getShape() const;
+	int getColor() const;
+	int getFill() const;
+	int getNumber() const;
+	int getSize() const;
+	string getImage() const;
 
 	void setShape(int shape);
 	void setColor(int color);

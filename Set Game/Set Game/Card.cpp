@@ -32,27 +32,37 @@ Card::Card(int shape, int color, int fill, int num, int size, string image) {
 	//}
 }
 
-int Card::getShape() {
+Card::Card(Card const & copyCard)
+{
+	setShape(copyCard.getShape());
+	setColor(copyCard.getColor());
+	setFill(copyCard.getFill());
+	setNumber(copyCard.getNumber());
+	setSize(copyCard.getSize());
+	setImage(copyCard.getImage());
+}
+
+int Card::getShape() const{
 	return this->mAttributes[0];
 }
 
-int Card::getColor() {
+int Card::getColor() const {
 	return this->mAttributes[1];
 }
 
-int Card::getFill() {
+int Card::getFill() const {
 	return this->mAttributes[2];
 }
 
-int Card::getNumber() {
+int Card::getNumber() const {
 	return this->mAttributes[3];
 }
 
-int Card::getSize() {
+int Card::getSize() const {
 	return this->mAttributes[4];
 }
 
-string Card::getImage() {
+string Card::getImage() const {
 	return this->mImage;
 }
 
