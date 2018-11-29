@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <string>
+#include "Card.cpp"
 
 using std::string;
 using std::ostream;

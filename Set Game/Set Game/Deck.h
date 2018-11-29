@@ -2,7 +2,8 @@
 #include <math.h>
 #include <iostream>
 #include <vector>
-#include "Card.cpp"
+#include "Deck.cpp"
+#include "Card.h"
 
 using std::vector;
 

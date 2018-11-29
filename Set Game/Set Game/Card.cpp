@@ -1,5 +1,3 @@
-#include "Card.h"
-
 Card::Card(int shape, int color, int fill, int num, int size, string image) {
 	mSelection = false;
 
