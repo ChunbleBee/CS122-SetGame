@@ -35,7 +35,7 @@ void Deck::shuffle() {
 	}
 }
 
-Deck::Deck(int difficulty = 4) {
+Deck::Deck(int difficulty) {
 		mCardDeck.resize(pow(3, difficulty));
 
 		buildDeck(mCardDeck.size(), difficulty);

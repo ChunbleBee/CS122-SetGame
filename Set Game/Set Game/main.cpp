@@ -15,7 +15,7 @@ int main()
 
 	// Load a texture from a file
 	sf::Texture texture;
-	if (!texture.loadFromFile("Set Cards/r2wd.PNG"))
+	if (!texture.loadFromFile("./Set Cards/r2wd.PNG"))
 		return -1;
 
 	sf::Sprite sprite;
