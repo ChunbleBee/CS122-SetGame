@@ -7,18 +7,14 @@ PlayGame::PlayGame()
 	// Put 12 cards into play
 	for (int i = 0; i < 12; i++)
 	{
-		mCardsInPlay.push_back(mDeck.dealCard());
+		mCardsInPlay[i] = mDeck.dealCard();
 
-		sf::Texture texture;
-		if (!texture.loadFromFile(mCardsInPlay.back().getImage()))
+		if (!mTexturesInPlay[i].loadFromFile(mCardsInPlay[i].getImage()))
 		{
 			cout << "error loading card image" << endl;
 		}
-		mTexturesInPlay.push_back(texture);
 
-		sf::Sprite sprite;
-		sprite.setTexture(mTexturesInPlay.back());
-		mSpritesInPlay.push_back(sprite);
+		mSpritesInPlay[i].setTexture(mTexturesInPlay[i]);
 
 		////// this is just for debugging
 		//bool click = false;
@@ -75,6 +71,8 @@ PlayGame::PlayGame()
 		//}
 		//////
 	}
+
+	mCardCount = 12;
 }
 
 void PlayGame::playGame()
@@ -89,7 +87,7 @@ void PlayGame::playGame()
 		}
 
 		mWindow.clear();
-		for (int i = 0; i < mSpritesInPlay.size(); i++)
+		for (int i = 0; i < mCardCount; i++)
 			mWindow.draw(mSpritesInPlay[i]);
 		mWindow.display();
 	}

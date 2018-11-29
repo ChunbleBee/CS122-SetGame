@@ -12,7 +12,8 @@ public:
 private:
 	sf::RenderWindow mWindow;
 	Deck mDeck;
-	vector<Card> mCardsInPlay;
-	vector<sf::Texture> mTexturesInPlay;
-	vector<sf::Sprite> mSpritesInPlay;
+	Card mCardsInPlay[21];
+	sf::Texture mTexturesInPlay[21];
+	sf::Sprite mSpritesInPlay[21];
+	int mCardCount;
 };
