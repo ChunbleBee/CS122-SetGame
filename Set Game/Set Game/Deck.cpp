@@ -19,6 +19,7 @@ void Deck::buildDeck(int deckSize, int difficulty) {
 		mCardDeck[i].setFill(div(i, 9).quot % 3);
 		mCardDeck[i].setNumber(div(i, 27).quot % 3);
 		mCardDeck[i].setSize(div(i, 81).quot % 3);
+		mCardDeck[i].buildImageFileName();
 	}
 }
 
