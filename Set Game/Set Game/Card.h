@@ -38,7 +38,7 @@ public:
 
 	void switchSelected();
 
-	bool isSelected();
+	bool isSelected() const;
 
 };
 

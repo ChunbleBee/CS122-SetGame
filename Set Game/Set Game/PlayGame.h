@@ -5,7 +5,7 @@
 class PlayGame
 {
 public:
-	PlayGame();
+	PlayGame(); // Setup
 
 	void playGame(); // This is where gameplay actually runs
 
@@ -16,4 +16,5 @@ private:
 	sf::Texture mTexturesInPlay[21];
 	sf::Sprite mSpritesInPlay[21];
 	int mCardCount;
+	int mCardsSelected;
 };

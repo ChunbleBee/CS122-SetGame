@@ -24,6 +24,7 @@ Card::Card(int shape, int color, int fill, int num, int size, string image) {
 	this->setFill(fill);
 	this->setNumber(num);
 	this->setSize(size);
+	this->mSelection = false;
 	//if (image.compare("")) {
 	//	this->setImage(image);
 	//}
@@ -40,6 +41,7 @@ Card::Card(Card const & copyCard)
 	setNumber(copyCard.getNumber());
 	setSize(copyCard.getSize());
 	setImage(copyCard.getImage());
+	this->mSelection = copyCard.isSelected();
 }
 
 int Card::getShape() const{
@@ -90,7 +92,7 @@ void Card::setImage(string img) {
 	this->mImage = img;
 }
 
-bool Card::isSelected() {
+bool Card::isSelected() const{
 	return this->mSelection;
 }
 

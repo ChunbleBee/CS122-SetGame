@@ -7,72 +7,28 @@ PlayGame::PlayGame()
 	// Put 12 cards into play
 	for (int i = 0; i < 12; i++)
 	{
-		mCardsInPlay[i] = mDeck.dealCard();
+		mCardsInPlay[i] = mDeck.dealCard(); // add card to deck
 
-		if (!mTexturesInPlay[i].loadFromFile(mCardsInPlay[i].getImage()))
+		if (!mTexturesInPlay[i].loadFromFile(mCardsInPlay[i].getImage())) // load card texture
 		{
 			cout << "error loading card image" << endl;
 		}
 
-		mSpritesInPlay[i].setTexture(mTexturesInPlay[i]);
+		mSpritesInPlay[i].setTexture(mTexturesInPlay[i]); // set sprite's texture
 
-		////// this is just for debugging
-		//bool click = false;
-		//while (!click)
-		//{
-		//	sf::Event event;
-		//	while (mWindow.pollEvent(event))
-		//	{
-		//		if (event.type == sf::Event::MouseButtonPressed)
-		//			click = true;
-		//	}
-		//	mWindow.clear();
-		//	mWindow.draw(mSpritesInPlay.back());
-		//	mWindow.display();
-		//}
-		//////
 	}
 
 	// Move Card Sprites to display positions
 	for (int i = 0; i < 12; i++)
 	{
-		////// this is just for debugging
-		//bool click = false;
-		//while (!click)
-		//{
-		//	sf::Event event;
-		//	while (mWindow.pollEvent(event))
-		//	{
-		//		if (event.type == sf::Event::MouseButtonPressed)
-		//			click = true;
-		//	}
-		//	mWindow.clear();
-		//	mWindow.draw(mSpritesInPlay[i]);
-		//	mWindow.display();
-		//}
-		//////
 
-		mSpritesInPlay[i].setScale(0.4, 0.4);
-		mSpritesInPlay[i].setPosition(10 + (i/3) * 150, 10 + (i%3) * 200);
+		mSpritesInPlay[i].setScale(0.4, 0.4); // shrink sprites for screen size
+		mSpritesInPlay[i].setPosition(10 + (i/3) * 150, 10 + (i%3) * 200); // move card sprite
 
-		////// this is just for debugging
-		//click = false;
-		//while (!click)
-		//{
-		//	sf::Event event;
-		//	while (mWindow.pollEvent(event))
-		//	{
-		//		if (event.type == sf::Event::MouseButtonPressed)
-		//			click = true;
-		//	}
-		//	mWindow.clear();
-		//	mWindow.draw(mSpritesInPlay[i]);
-		//	mWindow.display();
-		//}
-		//////
 	}
 
-	mCardCount = 12;
+	mCardCount = 12; // set card count
+	mCardsSelected = 0; // set selection count
 }
 
 void PlayGame::playGame()
@@ -84,7 +40,32 @@ void PlayGame::playGame()
 		{
 			if (event.type == sf::Event::Closed)
 				mWindow.close();
+			else if (event.type == sf::Event::MouseButtonPressed)
+			{
+				for (int i = 0; i < mCardCount; i++)
+				{
+					if (mSpritesInPlay[i].getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(mWindow))))
+					{
+						if (mCardsInPlay[i].isSelected())
+						{
+							mSpritesInPlay[i].setColor(sf::Color(255, 255, 255, 255));
+							mCardsSelected--;
+						}
+						else
+						{
+							mSpritesInPlay[i].setColor(sf::Color(255, 255, 255, 127));
+							mCardsSelected++;
+						}
+						mCardsInPlay[i].switchSelected();
+					}
+				}
+			}
 		}
+
+		//if (mCardsSelected == 3)
+		//{
+		//	// Check if selected cards make a SET
+		//}
 
 		mWindow.clear();
 		for (int i = 0; i < mCardCount; i++)
