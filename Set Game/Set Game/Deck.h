@@ -5,6 +5,7 @@
 #include "Card.h"
 
 using std::vector;
+using std::cout;
 
 class Deck {
 private:
