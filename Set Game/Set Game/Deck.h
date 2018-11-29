@@ -2,8 +2,7 @@
 #include <math.h>
 #include <iostream>
 #include <vector>
-//#include <windows.h>
-#include "Card.cpp"
+#include "Card.h"
 
 using std::vector;
 using std::cout;

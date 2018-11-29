@@ -1,12 +1,35 @@
 #include "Card.h"
 
+void Card::buildImageFileName()
+{
+	string colors = "rgb",
+		numbers = "123",
+		shapes = "owd",
+		fills = "odf";
+
+	char colorChar = colors[getColor()],
+		numberChar = numbers[getNumber()],
+		shapeChar = shapes[getShape()],
+		fillChar = fills[getFill()];
+
+	mImage = string("Set Cards/") + colorChar + numberChar +
+		shapeChar + fillChar + string(".PNG");
+}
+
 Card::Card(int shape, int color, int fill, int num, int size, string image) {
+	mSelection = false;
+
 	this->setShape(shape);
 	this->setColor(color);
 	this->setFill(fill);
 	this->setNumber(num);
 	this->setSize(size);
-	this->setImage(image);
+	//if (image.compare("")) {
+	//	this->setImage(image);
+	//}
+	//else {
+	//	buildImageFileName();
+	//}
 }
 
 int Card::getShape() {
@@ -56,6 +79,15 @@ void Card::setSize(int size) {
 void Card::setImage(string img) {
 	this->mImage = img;
 }
+
+bool Card::isSelected() {
+	return this->mSelection;
+}
+
+void Card::switchSelected() {
+	this->mSelection = !this->mSelection;
+}
+
 
 ostream & operator << (ostream & stm, Card & c) {
 	//shape, color, fill, number, size

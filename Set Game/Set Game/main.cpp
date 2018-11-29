@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "Deck.cpp"
+#include "Deck.h"
 
 int main()
 {
@@ -8,18 +8,24 @@ int main()
 	// The main function is just an experemental mess right now. 
 	// TODO: make this better. yep.
 	// seriously this code is trash.
+	Card c = d.dealCard();
+
+	c.setImage("Set Cards/r2wd.PNG");
 
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "Set");
 	//sf::CircleShape shape(100.f);
 	//shape.setFillColor(sf::Color::Green);
 
 	// Load a texture from a file
+	
+	//
 	sf::Texture texture;
-	if (!texture.loadFromFile("./Set Cards/r2wd.PNG"))
+	if (!texture.loadFromFile(c.getImage()))
 		return -1;
 
 	sf::Sprite sprite;
 	sprite.setTexture(texture);
+	//
 
 	sprite.setScale(0.4f, 0.4f);
 	sprite.setPosition(10.f, 10.f);

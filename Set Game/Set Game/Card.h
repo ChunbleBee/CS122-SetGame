@@ -6,6 +6,8 @@
 using std::string;
 using std::ostream;
 using std::endl;
+using std::cout;
+using std::cin;
 
 class Card {
 private:
@@ -15,7 +17,9 @@ private:
 	bool mSelection;
 
 public:
-	Card(int shape = -1, int color = -1, int fill = -1, int num = -1, int size = -1, string image = "");
+	void buildImageFileName();
+
+	Card(int shape = 0, int color = 0, int fill = 0, int num = 0, int size = 0, string image = "");
 
 	int getShape();
 	int getColor();
@@ -34,6 +38,7 @@ public:
 	void switchSelected();
 
 	bool isSelected();
+
 };
 
 ostream & operator << (ostream & stm, Card & c);
