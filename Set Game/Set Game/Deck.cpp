@@ -1,3 +1,5 @@
+#include "Deck.h"
+
 void Deck::buildDeck(int deckSize, int difficulty) {
 	//shape, color, fill, number
 	//Each given value 1-3
@@ -32,7 +34,7 @@ void Deck::shuffle() {
 	}
 }
 
-Deck::Deck(int difficulty = 4) {
+Deck::Deck(int difficulty) {
 		mCardDeck.resize(pow(3, difficulty));
 
 		buildDeck(mCardDeck.size(), difficulty);

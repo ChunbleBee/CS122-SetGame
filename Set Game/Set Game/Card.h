@@ -2,18 +2,19 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <string>
-#include "Card.cpp"
 
 using std::string;
 using std::ostream;
 using std::endl;
 
-class Card : public sf::Drawable {
+class Card {
 private:
 	//shape, color, fill, number, size
 	int mAttributes [5];
 	string mImage;
 	bool mSelection;
+
+	void buildImageFileName();
 
 public:
 	Card(int shape = -1, int color = -1, int fill = -1, int num = -1, int size = -1, string image = "");

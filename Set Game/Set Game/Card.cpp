@@ -1,3 +1,5 @@
+#include "Card.h"
+
 Card::Card(int shape, int color, int fill, int num, int size, string image) {
 	mSelection = false;
 
@@ -6,7 +8,12 @@ Card::Card(int shape, int color, int fill, int num, int size, string image) {
 	this->setFill(fill);
 	this->setNumber(num);
 	this->setSize(size);
-	this->setImage(image);
+	if (image.compare("")) {
+		this->setImage(image);
+	}
+	else {
+		buildImageFileName();
+	}
 }
 
 int Card::getShape() {
@@ -63,6 +70,10 @@ bool Card::isSelected() {
 
 void Card::switchSelected() {
 	this->mSelection = !this->mSelection;
+}
+
+void buildImageFileName() {
+	
 }
 
 ostream & operator << (ostream & stm, Card & c) {
