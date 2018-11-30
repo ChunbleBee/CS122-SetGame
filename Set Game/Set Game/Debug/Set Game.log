@@ -1,18 +1,12 @@
-﻿  main.cpp
-c:\users\max\documents\github\setgame\set game\set game\playgame.h(15): warning C4227: anachronism used: qualifiers on reference are ignored
-  PlayGame.cpp
-c:\users\max\documents\github\setgame\set game\set game\playgame.h(15): warning C4227: anachronism used: qualifiers on reference are ignored
-c:\users\max\documents\github\setgame\set game\set game\playgame.cpp(25): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\max\documents\github\setgame\set game\set game\playgame.cpp(26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\max\documents\github\setgame\set game\set game\playgame.cpp(53): warning C4018: '<': signed/unsigned mismatch
-c:\users\max\documents\github\setgame\set game\set game\playgame.cpp(70): warning C4018: '<': signed/unsigned mismatch
-c:\users\max\documents\github\setgame\set game\set game\playgame.cpp(112): warning C4227: anachronism used: qualifiers on reference are ignored
-  Deck.cpp
-c:\users\max\documents\github\setgame\set game\set game\deck.cpp(27): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\max\documents\github\setgame\set game\set game\deck.cpp(29): warning C4018: '<': signed/unsigned mismatch
-c:\users\max\documents\github\setgame\set game\set game\deck.cpp(39): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
-  Card.cpp
+﻿  PlayGame.cpp
+c:\users\tai\documents\github\setgame\set game\set game\playgame.h(15): warning C4227: anachronism used: qualifiers on reference are ignored
+c:\users\tai\documents\github\setgame\set game\set game\playgame.cpp(29): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\tai\documents\github\setgame\set game\set game\playgame.cpp(30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\tai\documents\github\setgame\set game\set game\playgame.cpp(55): warning C4018: '<': signed/unsigned mismatch
+c:\users\tai\documents\github\setgame\set game\set game\playgame.cpp(72): warning C4018: '<': signed/unsigned mismatch
+c:\users\tai\documents\github\setgame\set game\set game\playgame.cpp(127): warning C4227: anachronism used: qualifiers on reference are ignored
   Generating Code...
-  LINK : C:\Users\Max\Documents\GitHub\SetGame\Set Game\Debug\Set Game.exe not found or not built by the last incremental link; performing full link
-  Set Game.vcxproj -> C:\Users\Max\Documents\GitHub\SetGame\Set Game\Debug\Set Game.exe
-  Set Game.vcxproj -> C:\Users\Max\Documents\GitHub\SetGame\Set Game\Debug\Set Game.pdb (Full PDB)
+  Skipping... (no relevant changes detected)
+  main.cpp
+  Set Game.vcxproj -> C:\Users\Tai\Documents\GitHub\SetGame\Set Game\Debug\Set Game.exe
+  Set Game.vcxproj -> C:\Users\Tai\Documents\GitHub\SetGame\Set Game\Debug\Set Game.pdb (Full PDB)

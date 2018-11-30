@@ -8,18 +8,20 @@ using std::vector;
 class PlayGame
 {
 public:
-	PlayGame(); // Setup
+	PlayGame(int cardCount = 21); // Setup
 
 	void playGame(); // This is where gameplay actually runs
 
-	bool isSet(Card & const c1, Card & const c2, Card & const c3);
+	bool isSet(Card & const c1, Card & const c2, Card & const c3); //Checks if three given cards are a set.
+
+	bool gameOverCheck(); //Checks to see if the game is over.
 
 private:
 	sf::RenderWindow mWindow;
 	Deck mDeck;
-	Card mCardsInPlay[21];
-	sf::Texture mTexturesInPlay[21];
-	sf::Sprite mSpritesInPlay[21];
+	vector<Card> mCardsInPlay;
+	vector<sf::Texture> mTexturesInPlay;
+	vector<sf::Sprite> mSpritesInPlay;
 	int mCardCount;
 	vector<int> mCardsSelected;
 };

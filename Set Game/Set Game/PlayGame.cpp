@@ -1,7 +1,11 @@
 #include "PlayGame.h"
 
-PlayGame::PlayGame()
+PlayGame::PlayGame(int cardCount)
 {
+	mCardCount = cardCount;
+	mCardsInPlay.resize(mCardCount);
+	mTexturesInPlay.resize(mCardCount);
+	mSpritesInPlay.resize(mCardCount);
 	mWindow.create(sf::VideoMode(1280, 720), "Set Game");
 
 	// Put 12 cards into play
@@ -26,8 +30,6 @@ PlayGame::PlayGame()
 		mSpritesInPlay[i].setPosition(10 + (i / 3) * 150, 10 + (i % 3) * 200); // move card sprite
 
 	}
-
-	mCardCount = 21; // set card count
 }
 
 void PlayGame::playGame()
@@ -84,10 +86,23 @@ void PlayGame::playGame()
 				// If they do remove them and replace them
 				for (int i = 0; i < 3; i++)
 				{
-					//replace cards
-					mCardsInPlay[mCardsSelected[i]] = mDeck.dealCard();
-					//replace textures
-					mTexturesInPlay[mCardsSelected[i]].loadFromFile(mCardsInPlay[mCardsSelected[i]].getImage());
+					if (mDeck.isEmpty() == false) {
+						//replace cards
+						mCardsInPlay[mCardsSelected[i]] = mDeck.dealCard();
+						//replace textures
+						mTexturesInPlay[mCardsSelected[i]].loadFromFile(mCardsInPlay[mCardsSelected[i]].getImage());
+					}
+					else {
+						mCardCount--;
+						mCardsInPlay.erase(mCardsInPlay.begin() + mCardsSelected[i]);
+						mTexturesInPlay.erase(mTexturesInPlay.begin() + mCardsSelected[i]);
+					}
+				}
+
+				if (gameOverCheck()) {
+					cout << "Game Over!" << endl;
+					system("pause");
+					exit(0);
 				}
 			}
 
@@ -121,4 +136,23 @@ bool PlayGame::isSet(Card & const c1, Card & const c2, Card & const c3)
 	}
 
 	return true;
+}
+
+bool PlayGame::gameOverCheck()
+{
+	int maxIndex = mCardsInPlay.size();
+	if (mDeck.isEmpty() == true) {
+		for (int i = 0; i < maxIndex - 3; i++) {
+			for (int j = 1; j < maxIndex - 2; j++) {
+				for (int k = 2; k < maxIndex - 1; k++) {
+					if (isSet(mCardsInPlay[i], mCardsInPlay[j], mCardsInPlay[k])) {
+						return false;
+					}
+				}
+			}
+		}
+
+		return true;
+	}
+	return false;
 }

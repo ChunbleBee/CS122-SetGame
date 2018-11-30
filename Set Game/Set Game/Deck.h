@@ -17,4 +17,5 @@ public:
 	Deck(int difficulty = 4);
 
 	Card dealCard();
+	bool isEmpty();
 };

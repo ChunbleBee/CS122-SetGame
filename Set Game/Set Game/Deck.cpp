@@ -49,3 +49,7 @@ Card Deck::dealCard() {
 	mCardDeck.pop_back();
 	return out;
 }
+
+bool Deck::isEmpty() {
+	return (this->mCardDeck.size() == 0);
+}
