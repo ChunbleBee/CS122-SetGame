@@ -1,8 +1,7 @@
-﻿  main.cpp
-  Deck.cpp
-c:\users\max\documents\github\setgame\set game\set game\deck.cpp(27): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\max\documents\github\setgame\set game\set game\deck.cpp(29): warning C4018: '<': signed/unsigned mismatch
-c:\users\max\documents\github\setgame\set game\set game\deck.cpp(39): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
-  Generating Code...
+﻿  PlayGame.cpp
+c:\users\max\documents\github\setgame\set game\set game\playgame.cpp(25): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\max\documents\github\setgame\set game\set game\playgame.cpp(26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\max\documents\github\setgame\set game\set game\playgame.cpp(53): warning C4018: '<': signed/unsigned mismatch
+c:\users\max\documents\github\setgame\set game\set game\playgame.cpp(70): warning C4018: '<': signed/unsigned mismatch
   Set Game.vcxproj -> C:\Users\Max\Documents\GitHub\SetGame\Set Game\Debug\Set Game.exe
   Set Game.vcxproj -> C:\Users\Max\Documents\GitHub\SetGame\Set Game\Debug\Set Game.pdb (Full PDB)

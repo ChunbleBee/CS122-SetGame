@@ -28,7 +28,6 @@ PlayGame::PlayGame()
 	}
 
 	mCardCount = 21; // set card count
-	mCardsSelected = 0; // set selection count
 }
 
 void PlayGame::playGame()
@@ -46,26 +45,60 @@ void PlayGame::playGame()
 				{
 					if (mSpritesInPlay[i].getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(mWindow))))
 					{
-						if (mCardsInPlay[i].isSelected())
+						if (mCardsInPlay[i].isSelected()) // deselected
 						{
 							mSpritesInPlay[i].setColor(sf::Color(255, 255, 255, 255));
-							mCardsSelected--;
+
+							// remove card index from cards selected
+							for (int j = 0; j < mCardsSelected.size(); j++)
+							{
+								if (mCardsSelected[j] == i)
+								{
+									mCardsSelected.erase(mCardsSelected.begin() + j);
+								}
+							}
 						}
-						else
+						else // selected
 						{
 							mSpritesInPlay[i].setColor(sf::Color(255, 255, 255, 127));
-							mCardsSelected++;
+							mCardsSelected.push_back(i); //add card index to cards selected
 						}
 						mCardsInPlay[i].switchSelected();
+
+						
+						cout << "Cards selected: ";
+						for (int j = 0; j < mCardsSelected.size(); j++)
+							cout << mCardsSelected[j] << " ";
+						cout << endl;
 					}
 				}
 			}
 		}
 
-		//if (mCardsSelected == 3)
-		//{
-		//	// Check if selected cards make a SET
-		//}
+		// when 3 cards are selected test if they make a set
+		if (mCardsSelected.size() == 3)
+		{
+			// Check if selected cards make a SET
+			if (tempisSet(mCardsInPlay[mCardsSelected[0]], mCardsInPlay[mCardsSelected[1]], mCardsInPlay[mCardsSelected[2]]))
+			{
+				// If they do remove them and replace them
+				for (int i = 0; i < 3; i++)
+				{
+					//replace cards
+					mCardsInPlay[mCardsSelected[i]] = mDeck.dealCard();
+					//replace textures
+					mTexturesInPlay[mCardsSelected[i]].loadFromFile(mCardsInPlay[mCardsSelected[i]].getImage());
+				}
+			}
+
+			// deselect the three cards
+			for (int i = 0; i < 3; i++)
+			{
+				//reset transparancy
+				mSpritesInPlay[mCardsSelected[i]].setColor(sf::Color(255, 255, 255, 255));
+			}
+			mCardsSelected.clear();
+		}
 
 		mWindow.clear();
 		for (int i = 0; i < mCardCount; i++)

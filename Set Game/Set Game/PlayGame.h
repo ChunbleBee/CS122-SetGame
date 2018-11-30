@@ -9,6 +9,8 @@ public:
 
 	void playGame(); // This is where gameplay actually runs
 
+	bool tempisSet(Card c1, Card c2, Card c3) { return true; }
+
 private:
 	sf::RenderWindow mWindow;
 	Deck mDeck;
@@ -16,5 +18,5 @@ private:
 	sf::Texture mTexturesInPlay[21];
 	sf::Sprite mSpritesInPlay[21];
 	int mCardCount;
-	int mCardsSelected;
+	vector<int> mCardsSelected;
 };
