@@ -21,5 +21,5 @@ private:
 	sf::Texture mTexturesInPlay[21];
 	sf::Sprite mSpritesInPlay[21];
 	int mCardCount;
-	int mCardsSelected;
+	vector<int> mCardsSelected;
 };
