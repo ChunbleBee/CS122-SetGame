@@ -5,7 +5,7 @@ PlayGame::PlayGame()
 	mWindow.create(sf::VideoMode(1280, 720), "Set Game");
 
 	// Put 12 cards into play
-	for (int i = 0; i < 12; i++)
+	for (int i = 0; i < 21; i++)
 	{
 		mCardsInPlay[i] = mDeck.dealCard(); // add card to deck
 
@@ -19,7 +19,7 @@ PlayGame::PlayGame()
 	}
 
 	// Move Card Sprites to display positions
-	for (int i = 0; i < 12; i++)
+	for (int i = 0; i < 21; i++)
 	{
 
 		mSpritesInPlay[i].setScale(0.4, 0.4); // shrink sprites for screen size
@@ -27,7 +27,7 @@ PlayGame::PlayGame()
 
 	}
 
-	mCardCount = 12; // set card count
+	mCardCount = 21; // set card count
 	mCardsSelected = 0; // set selection count
 }
 

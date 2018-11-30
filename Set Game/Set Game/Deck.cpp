@@ -40,17 +40,8 @@ Deck::Deck(int difficulty) {
 
 		buildDeck(mCardDeck.size(), difficulty);
 
-		for (int i = 0; i < mCardDeck.size(); i++) {
-			cout << mCardDeck[i] << endl;
-		}
-
-		cout << endl << endl << endl;
-
 		shuffle();
 
-		for (int i = 0; i < mCardDeck.size(); i++) {
-			cout << mCardDeck[i] << endl;
-		}
 }
 
 Card Deck::dealCard() {
