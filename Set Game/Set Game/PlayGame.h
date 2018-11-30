@@ -1,6 +1,9 @@
 #pragma once
 
+#include <vector>
 #include "Deck.h"
+
+using std::vector;
 
 class PlayGame
 {
@@ -8,6 +11,8 @@ public:
 	PlayGame(); // Setup
 
 	void playGame(); // This is where gameplay actually runs
+
+	bool isSet(Card & const c1, Card & const c2, Card & const c3);
 
 private:
 	sf::RenderWindow mWindow;

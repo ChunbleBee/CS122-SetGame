@@ -17,6 +17,7 @@ void Card::buildImageFileName()
 }
 
 Card::Card(int shape, int color, int fill, int num, int size, string image) {
+	mAttributes.resize(5);
 	mSelection = false;
 
 	this->setShape(shape);
@@ -35,6 +36,7 @@ Card::Card(int shape, int color, int fill, int num, int size, string image) {
 
 Card::Card(Card const & copyCard)
 {
+	mAttributes.resize(5);
 	setShape(copyCard.getShape());
 	setColor(copyCard.getColor());
 	setFill(copyCard.getFill());
@@ -66,6 +68,11 @@ int Card::getSize() const {
 
 string Card::getImage() const {
 	return this->mImage;
+}
+
+vector<int> Card::getAttributes() const
+{
+	return mAttributes;
 }
 
 void Card::setShape(int shape) {

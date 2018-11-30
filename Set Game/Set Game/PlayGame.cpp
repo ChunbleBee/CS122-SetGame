@@ -74,3 +74,16 @@ void PlayGame::playGame()
 	}
 }
 
+bool PlayGame::isSet(Card & const c1, Card & const c2, Card & const c3)
+{
+	//shape, color, fill, number, size
+	for (int i = 0; i < 5; i++) { //exchange hardcoded 5 w/ difficulty
+		if ((c1.getAttributes()[i] == c2.getAttributes()[i] && c1.getAttributes()[i] != c3.getAttributes()[i])
+			|| (c1.getAttributes()[i] != c2.getAttributes()[i] && c1.getAttributes()[i] == c3.getAttributes()[i])
+			|| (c1.getAttributes()[i] != c2.getAttributes()[i] && c2.getAttributes()[i] == c3.getAttributes()[i])) {
+			return false;
+		}
+	}
+
+	return true;
+}

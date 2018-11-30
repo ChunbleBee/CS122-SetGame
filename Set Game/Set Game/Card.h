@@ -2,7 +2,9 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <string>
+#include <vector>
 
+using std::vector;
 using std::string;
 using std::ostream;
 using std::endl;
@@ -12,7 +14,7 @@ using std::cin;
 class Card {
 private:
 	//shape, color, fill, number, size
-	int mAttributes [5];
+	vector<int> mAttributes;
 	string mImage;
 	bool mSelection;
 
@@ -28,6 +30,7 @@ public:
 	int getNumber() const;
 	int getSize() const;
 	string getImage() const;
+	vector<int> getAttributes() const;
 
 	void setShape(int shape);
 	void setColor(int color);
