@@ -4,6 +4,8 @@
 
 int main()
 {
+	sf::RenderWindow window;
+	window.create(sf::VideoMode(1280, 720), "Set Game");
 	PlayGame set;
 
 	std::cout << endl;
@@ -24,7 +26,7 @@ int main()
 	std::cout << set.isSet(c1, c2, c3) << std::endl;
 
 
-	set.playGame();
+	set.playGame(window);
 
 
 

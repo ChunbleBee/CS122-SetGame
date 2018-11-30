@@ -6,7 +6,6 @@ PlayGame::PlayGame(int cardCount)
 	mCardsInPlay.resize(mCardCount);
 	mTexturesInPlay.resize(mCardCount);
 	mSpritesInPlay.resize(mCardCount);
-	mWindow.create(sf::VideoMode(1280, 720), "Set Game");
 
 	// Put 12 cards into play
 	for (int i = 0; i < 21; i++)
@@ -32,20 +31,22 @@ PlayGame::PlayGame(int cardCount)
 	}
 }
 
-void PlayGame::playGame()
+void PlayGame::playGame(sf::RenderWindow & window)
 {
-	while (mWindow.isOpen())
+	bool gameOver = false;
+
+	while (window.isOpen() && !gameOver)
 	{
 		sf::Event event;
-		while (mWindow.pollEvent(event))
+		while (window.pollEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
-				mWindow.close();
+				window.close();
 			else if (event.type == sf::Event::MouseButtonPressed)
 			{
 				for (int i = 0; i < mCardCount; i++)
 				{
-					if (mSpritesInPlay[i].getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(mWindow))))
+					if (mSpritesInPlay[i].getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(window))))
 					{
 						if (mCardsInPlay[i].isSelected()) // deselected
 						{
@@ -86,23 +87,25 @@ void PlayGame::playGame()
 				// If they do remove them and replace them
 				for (int i = 0; i < 3; i++)
 				{
-					if (mDeck.isEmpty() == false) {
+					if (mDeck.isEmpty() == false) 
+					{
 						//replace cards
 						mCardsInPlay[mCardsSelected[i]] = mDeck.dealCard();
 						//replace textures
 						mTexturesInPlay[mCardsSelected[i]].loadFromFile(mCardsInPlay[mCardsSelected[i]].getImage());
 					}
-					else {
+					else 
+					{
 						mCardCount--;
-						mCardsInPlay.erase(mCardsInPlay.begin() + mCardsSelected[i]);
-						mTexturesInPlay.erase(mTexturesInPlay.begin() + mCardsSelected[i]);
+						mCardsInPlay[mCardsSelected[i]] = mCardsInPlay[mCardCount];
+						mTexturesInPlay[mCardsSelected[i]] = mTexturesInPlay[mCardCount];
 					}
 				}
 
-				if (gameOverCheck()) {
+				if (gameOverCheck()) 
+				{
 					cout << "Game Over!" << endl;
-					system("pause");
-					exit(0);
+					gameOver = true;
 				}
 			}
 
@@ -115,10 +118,10 @@ void PlayGame::playGame()
 			mCardsSelected.clear();
 		}
 
-		mWindow.clear();
+		window.clear();
 		for (int i = 0; i < mCardCount; i++)
-			mWindow.draw(mSpritesInPlay[i]);
-		mWindow.display();
+			window.draw(mSpritesInPlay[i]);
+		window.display();
 	}
 }
 
@@ -140,11 +143,11 @@ bool PlayGame::isSet(Card & const c1, Card & const c2, Card & const c3)
 
 bool PlayGame::gameOverCheck()
 {
-	int maxIndex = mCardsInPlay.size();
+	int maxIndex = mCardCount;
 	if (mDeck.isEmpty() == true) {
 		for (int i = 0; i < maxIndex - 3; i++) {
-			for (int j = 1; j < maxIndex - 2; j++) {
-				for (int k = 2; k < maxIndex - 1; k++) {
+			for (int j = i + 1; j < maxIndex - 2; j++) {
+				for (int k = j + 1; k < maxIndex - 1; k++) {
 					if (isSet(mCardsInPlay[i], mCardsInPlay[j], mCardsInPlay[k])) {
 						return false;
 					}
