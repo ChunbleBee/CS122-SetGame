@@ -16,6 +16,8 @@ public:
 
 	bool gameOverCheck(); //Checks to see if the game is over.
 
+	bool anySets(); // Checks if there are any sets in play.
+
 private:
 	Deck mDeck;
 	vector<Card> mCardsInPlay;

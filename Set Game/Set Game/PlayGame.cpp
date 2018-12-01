@@ -114,6 +114,9 @@ void PlayGame::playGame(sf::RenderWindow & window)
 			{
 				//reset transparancy
 				mSpritesInPlay[mCardsSelected[i]].setColor(sf::Color(255, 255, 255, 255));
+
+				//set selected to false
+				mCardsInPlay[mCardsSelected[i]].switchSelected();
 			}
 			mCardsSelected.clear();
 		}
@@ -143,19 +146,22 @@ bool PlayGame::isSet(Card & const c1, Card & const c2, Card & const c3)
 
 bool PlayGame::gameOverCheck()
 {
-	int maxIndex = mCardCount;
-	if (mDeck.isEmpty() == true) {
-		for (int i = 0; i < maxIndex - 3; i++) {
-			for (int j = i + 1; j < maxIndex - 2; j++) {
-				for (int k = j + 1; k < maxIndex - 1; k++) {
-					if (isSet(mCardsInPlay[i], mCardsInPlay[j], mCardsInPlay[k])) {
-						return false;
-					}
+	if (mDeck.isEmpty() && !anySets()) {
+		return true;
+	}
+	return false;
+}
+
+bool PlayGame::anySets()
+{
+	for (int i = 0; i < mCardCount - 3; i++) {
+		for (int j = i + 1; j < mCardCount - 2; j++) {
+			for (int k = j + 1; k < mCardCount - 1; k++) {
+				if (isSet(mCardsInPlay[i], mCardsInPlay[j], mCardsInPlay[k])) {
+					return true;
 				}
 			}
 		}
-
-		return true;
 	}
 	return false;
 }
