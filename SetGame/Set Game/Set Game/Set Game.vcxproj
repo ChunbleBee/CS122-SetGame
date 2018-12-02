@@ -159,6 +159,7 @@
     <ClInclude Include="Card.h" />
     <ClInclude Include="CardInPlay.h" />
     <ClInclude Include="Deck.h" />
+    <ClInclude Include="Header.h" />
     <ClInclude Include="PlayArea.h" />
     <ClInclude Include="PlayGame.h" />
   </ItemGroup>

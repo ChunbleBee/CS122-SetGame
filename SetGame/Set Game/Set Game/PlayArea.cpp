@@ -2,6 +2,7 @@
 
 PlayArea::PlayArea()
 {
+	mDeck.shuffle();
 	mCardsInPlay.reserve(32);
 	loadSounds();
 }
