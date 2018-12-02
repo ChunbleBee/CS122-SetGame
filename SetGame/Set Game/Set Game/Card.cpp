@@ -102,7 +102,7 @@ void Card::setImage(string img) {
 void Card::setAttribute(int value, int index) {
 	if (index >= 0 && index < mAttributes.size()) {
 		if (value >= 0 && value < 3) {
-			mAttributes[index] == value;
+			mAttributes[index] = value;
 		}
 	}
 }
