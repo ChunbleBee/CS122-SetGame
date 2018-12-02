@@ -66,7 +66,8 @@ void PlayArea::cardClickCheck(sf::RenderWindow & window)
 {
 	for (int i = 0; i < mCardsInPlay.size(); i++)
 	{
-		if (mCardsInPlay[i].getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(window))))
+		sf::Vector2f adjusted_mouse_position = window.mapPixelToCoords((sf::Mouse::getPosition(window)));
+		if (mCardsInPlay[i].getGlobalBounds().contains(adjusted_mouse_position))
 		{
 			mCardsInPlay[i].switchSelected();
 
@@ -102,8 +103,10 @@ void PlayArea::singlePlayerMode(sf::RenderWindow & window)
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
-			if (event.type == sf::Event::Closed)
+			if (event.type == sf::Event::Closed) 
+			{
 				window.close();
+			}
 			else if (event.type == sf::Event::MouseButtonPressed)
 			{
 				cardClickCheck(window);
