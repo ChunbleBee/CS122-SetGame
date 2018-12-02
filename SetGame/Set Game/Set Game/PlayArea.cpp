@@ -140,7 +140,7 @@ void PlayArea::singlePlayerMode(sf::RenderWindow & window)
 		}
 
 		// draw cards (in groups of 3) until there is a set or the deck is empty
-		while (!anySets() && !gameOver)
+		while ((mCardsInPlay.size() < 12 || !anySets()) && !gameOver)
 		{
 			if (mDeck.isEmpty())
 				gameOver = true;
