@@ -3,6 +3,7 @@
 PlayArea::PlayArea()
 {
 	mCardsInPlay.reserve(32);
+	loadSounds();
 }
 
 void PlayArea::drawPlayArea(sf::RenderWindow & window)
@@ -70,6 +71,8 @@ void PlayArea::cardClickCheck(sf::RenderWindow & window)
 			if (mCardsInPlay[i].isSelected())
 			{
 				mCardsSelected.push_back(i);
+				if (mCardsSelected.size() < 3)
+					mSounds[0].play();
 			}
 			else
 			{
@@ -81,6 +84,7 @@ void PlayArea::cardClickCheck(sf::RenderWindow & window)
 						mCardsSelected.erase(mCardsSelected.begin() + j);
 					}
 				}
+				mSounds[1].play();
 			}
 		}
 		
@@ -118,6 +122,7 @@ void PlayArea::singlePlayerMode(sf::RenderWindow & window)
 					else
 						i++;
 				}
+				mSounds[2].play();
 			}
 			else
 			{
@@ -127,6 +132,7 @@ void PlayArea::singlePlayerMode(sf::RenderWindow & window)
 					if (mCardsInPlay[i].isSelected())
 						mCardsInPlay[i].switchSelected();
 				}
+				mSounds[3].play();
 			}
 
 			//clear cards selected
@@ -150,6 +156,29 @@ void PlayArea::singlePlayerMode(sf::RenderWindow & window)
 		drawPlayArea(window);
 		window.display();
 	}
+}
+
+void PlayArea::loadSounds()
+{
+	// load selection sound (sound 0)
+	if (!mBuffers[0].loadFromFile("Sounds/263133__pan14__tone-beep.wav"))
+		cout << "Failed to load sound 0." << endl;
+	mSounds[0].setBuffer(mBuffers[0]);
+
+	// load deselection sound (sound 1)
+	if (!mBuffers[1].loadFromFile("Sounds/beep_descending.wav"))
+		cout << "Failed to load sound 1." << endl;
+	mSounds[1].setBuffer(mBuffers[1]);
+
+	// load SET! sound (sound 2)
+	if (!mBuffers[2].loadFromFile("Sounds/263124__pan14__sine-octaves-up-beep.wav"))
+		cout << "Failed to load sound 2." << endl;
+	mSounds[2].setBuffer(mBuffers[2]);
+
+	// load not a set sound (sound 3)
+	if (!mBuffers[3].loadFromFile("Sounds/263123__pan14__sine-tri-tone-down-negative-beep-amb-verb.wav"))
+		cout << "Failed to load sound 3." << endl;
+	mSounds[3].setBuffer(mBuffers[3]);
 }
 
 

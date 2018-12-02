@@ -1,29 +1,13 @@
-﻿  PlayGame.cpp
-c:\users\maqz\documents\github\set game\set game\playgame.h(15): warning C4227: anachronism used: qualifiers on reference are ignored
-c:\users\maqz\documents\github\set game\set game\playgame.cpp(28): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\maqz\documents\github\set game\set game\playgame.cpp(29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\maqz\documents\github\set game\set game\playgame.cpp(56): warning C4018: '<': signed/unsigned mismatch
-c:\users\maqz\documents\github\set game\set game\playgame.cpp(73): warning C4018: '<': signed/unsigned mismatch
-c:\users\maqz\documents\github\set game\set game\playgame.cpp(133): warning C4227: anachronism used: qualifiers on reference are ignored
-  PlayArea.cpp
-c:\users\maqz\documents\github\set game\set game\playarea.cpp(10): warning C4018: '<': signed/unsigned mismatch
-c:\users\maqz\documents\github\set game\set game\playarea.cpp(12): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\maqz\documents\github\set game\set game\playarea.cpp(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\maqz\documents\github\set game\set game\playarea.cpp(49): warning C4018: '<': signed/unsigned mismatch
-c:\users\maqz\documents\github\set game\set game\playarea.cpp(50): warning C4018: '<': signed/unsigned mismatch
-c:\users\maqz\documents\github\set game\set game\playarea.cpp(51): warning C4018: '<': signed/unsigned mismatch
-c:\users\maqz\documents\github\set game\set game\playarea.cpp(64): warning C4018: '<': signed/unsigned mismatch
-c:\users\maqz\documents\github\set game\set game\playarea.cpp(77): warning C4018: '<': signed/unsigned mismatch
-c:\users\maqz\documents\github\set game\set game\playarea.cpp(114): warning C4018: '<': signed/unsigned mismatch
-c:\users\maqz\documents\github\set game\set game\playarea.cpp(125): warning C4018: '<': signed/unsigned mismatch
-  main.cpp
-c:\users\maqz\documents\github\set game\set game\playgame.h(15): warning C4227: anachronism used: qualifiers on reference are ignored
-  Deck.cpp
-c:\users\maqz\documents\github\set game\set game\deck.cpp(27): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\maqz\documents\github\set game\set game\deck.cpp(29): warning C4018: '<': signed/unsigned mismatch
-c:\users\maqz\documents\github\set game\set game\deck.cpp(39): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
-  CardInPlay.cpp
-  Card.cpp
-  Generating Code...
-  Set Game.vcxproj -> C:\Users\Maqz\Documents\GitHub\Set Game\Debug\Set Game.exe
-  Set Game.vcxproj -> C:\Users\Maqz\Documents\GitHub\Set Game\Debug\Set Game.pdb (Full PDB)
+﻿  PlayArea.cpp
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(11): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(13): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(50): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(51): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(52): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(65): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(80): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(118): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(130): warning C4018: '<': signed/unsigned mismatch
+  Set Game.vcxproj -> C:\Users\Maqz\Documents\GitHub\SetGame\Set Game\Debug\Set Game.exe
+  Set Game.vcxproj -> C:\Users\Maqz\Documents\GitHub\SetGame\Set Game\Debug\Set Game.pdb (Full PDB)

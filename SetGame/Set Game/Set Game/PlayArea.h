@@ -1,5 +1,6 @@
 #pragma once
 
+#include <SFML/Audio.hpp>
 #include <list>
 #include "CardInPlay.h"
 #include "Deck.h"
@@ -15,8 +16,13 @@ public:
 	void cardClickCheck(sf::RenderWindow & window); // Call where there is a click to select a card if the cursor is on a card.
 	void singlePlayerMode(sf::RenderWindow & window);
 
+	void loadSounds();
+
 private:
 	Deck mDeck;
 	vector<CardInPlay> mCardsInPlay;
 	vector<int> mCardsSelected;
+
+	sf::SoundBuffer mBuffers[4];
+	sf::Sound mSounds[4];
 };
