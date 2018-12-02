@@ -1,9 +1,0 @@
-﻿  PlayGame.cpp
-c:\users\maqz\documents\github\setgame\set game\set game\playgame.h(15): warning C4227: anachronism used: qualifiers on reference are ignored
-c:\users\maqz\documents\github\setgame\set game\set game\playgame.cpp(28): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\maqz\documents\github\setgame\set game\set game\playgame.cpp(29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\maqz\documents\github\setgame\set game\set game\playgame.cpp(56): warning C4018: '<': signed/unsigned mismatch
-c:\users\maqz\documents\github\setgame\set game\set game\playgame.cpp(73): warning C4018: '<': signed/unsigned mismatch
-c:\users\maqz\documents\github\setgame\set game\set game\playgame.cpp(133): warning C4227: anachronism used: qualifiers on reference are ignored
-  Set Game.vcxproj -> C:\Users\Maqz\Documents\GitHub\SetGame\Set Game\Debug\Set Game.exe
-  Set Game.vcxproj -> C:\Users\Maqz\Documents\GitHub\SetGame\Set Game\Debug\Set Game.pdb (Full PDB)
