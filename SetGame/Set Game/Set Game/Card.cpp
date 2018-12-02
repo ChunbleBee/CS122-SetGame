@@ -26,12 +26,12 @@ Card::Card(int shape, int color, int fill, int num, int size, string image) {
 	this->setNumber(num);
 	this->setSize(size);
 	this->mSelection = false;
-	//if (image.compare("")) {
+	if (image.compare("")) {
 	this->setImage(image);
-	//}
-	//else {
-	//	buildImageFileName();
-	//}
+	}
+	else {
+		buildImageFileName();
+	}
 }
 
 Card::Card(Card const & copyCard)

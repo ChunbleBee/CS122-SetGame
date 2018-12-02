@@ -23,7 +23,7 @@ bool PlayArea::drawCard()
 {
 	if (!mDeck.isEmpty())
 	{
-		mCardsInPlay.push_back(CardInPlay(mDeck.dealCard()));
+		mCardsInPlay.push_back(mDeck.dealCard());
 		return true;
 	}
 	else

@@ -2,6 +2,7 @@
 #include <iostream>
 #include "PlayGame.h"
 #include "PlayArea.h"
+#include "HowToPlay.h"
 
 int main()
 {
@@ -22,7 +23,8 @@ int main()
 	//	window.display();
 	//}
 
-
+	HowToPlay instructions;
+	instructions.demo(window);
 
 
 
