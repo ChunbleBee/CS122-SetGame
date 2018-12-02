@@ -24,7 +24,9 @@ bool PlayArea::drawCard()
 {
 	if (!mDeck.isEmpty())
 	{
-		mCardsInPlay.push_back(CardInPlay(mDeck.dealCard()));
+		Card test = mDeck.dealCard();
+		mCardsInPlay.push_back(test);
+
 		return true;
 	}
 	else
@@ -65,7 +67,8 @@ void PlayArea::cardClickCheck(sf::RenderWindow & window)
 {
 	for (int i = 0; i < mCardsInPlay.size(); i++)
 	{
-		if (mCardsInPlay[i].getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(window))))
+		sf::Vector2f adjusted_mouse_position = window.mapPixelToCoords((sf::Mouse::getPosition(window)));
+		if (mCardsInPlay[i].getGlobalBounds().contains(adjusted_mouse_position))
 		{
 			mCardsInPlay[i].switchSelected();
 
@@ -101,8 +104,10 @@ void PlayArea::singlePlayerMode(sf::RenderWindow & window)
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
-			if (event.type == sf::Event::Closed)
+			if (event.type == sf::Event::Closed) 
+			{
 				window.close();
+			}
 			else if (event.type == sf::Event::MouseButtonPressed)
 			{
 				cardClickCheck(window);
@@ -143,6 +148,7 @@ void PlayArea::singlePlayerMode(sf::RenderWindow & window)
 		// draw cards (in groups of 3) until there is a set or the deck is empty
 		while ((mCardsInPlay.size() < 12 || !anySets()) && !gameOver)
 		{
+			std::cout << mCardsInPlay.size() << std::endl;
 			if (mDeck.isEmpty())
 				gameOver = true;
 			else
@@ -162,22 +168,22 @@ void PlayArea::singlePlayerMode(sf::RenderWindow & window)
 void PlayArea::loadSounds()
 {
 	// load selection sound (sound 0)
-	if (!mBuffers[0].loadFromFile("Sounds/263133__pan14__tone-beep.wav"))
+	if (!mBuffers[0].loadFromFile("./Sounds/263133__pan14__tone-beep.wav"))
 		cout << "Failed to load sound 0." << endl;
 	mSounds[0].setBuffer(mBuffers[0]);
 
 	// load deselection sound (sound 1)
-	if (!mBuffers[1].loadFromFile("Sounds/beep_descending.wav"))
+	if (!mBuffers[1].loadFromFile("./Sounds/beep_descending.wav"))
 		cout << "Failed to load sound 1." << endl;
 	mSounds[1].setBuffer(mBuffers[1]);
 
 	// load SET! sound (sound 2)
-	if (!mBuffers[2].loadFromFile("Sounds/263124__pan14__sine-octaves-up-beep.wav"))
+	if (!mBuffers[2].loadFromFile("./Sounds/263124__pan14__sine-octaves-up-beep.wav"))
 		cout << "Failed to load sound 2." << endl;
 	mSounds[2].setBuffer(mBuffers[2]);
 
 	// load not a set sound (sound 3)
-	if (!mBuffers[3].loadFromFile("Sounds/263123__pan14__sine-tri-tone-down-negative-beep-amb-verb.wav"))
+	if (!mBuffers[3].loadFromFile("./Sounds/263123__pan14__sine-tri-tone-down-negative-beep-amb-verb.wav"))
 		cout << "Failed to load sound 3." << endl;
 	mSounds[3].setBuffer(mBuffers[3]);
 }

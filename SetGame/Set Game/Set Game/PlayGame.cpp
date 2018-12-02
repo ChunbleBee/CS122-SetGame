@@ -130,7 +130,7 @@ void PlayGame::playGame(sf::RenderWindow & window)
 
 
 
-bool PlayGame::isSet(Card & const c1, Card & const c2, Card & const c3)
+bool PlayGame::isSet(Card const & c1, Card const & c2, Card const & c3)
 {
 	//shape, color, fill, number, size
 	for (int i = 0; i < 5; i++) { //exchange hardcoded 5 w/ difficulty
