@@ -37,6 +37,7 @@ public:
 	void setFill(int fill);
 	void setNumber(int num);
 	void setSize(int size);
+	void setAttribute(int value, int index);
 	void setImage(string img);
 
 	virtual void switchSelected();
