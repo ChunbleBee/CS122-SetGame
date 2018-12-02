@@ -5,7 +5,7 @@
 class CardInPlay : public Card, public sf::Sprite
 {
 public:
-	CardInPlay(Card & enteringPlay);
+	CardInPlay(Card & enteringPlay = Card());
 	void switchSelected();
 	void setSelected(bool selection);
 	void changeCard(Card & enteringPlay);

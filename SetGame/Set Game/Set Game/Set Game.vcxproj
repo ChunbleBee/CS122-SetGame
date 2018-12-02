@@ -151,6 +151,7 @@
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="CardInPlay.cpp" />
     <ClCompile Include="Deck.cpp" />
+    <ClCompile Include="HowToPlay.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PlayArea.cpp" />
     <ClCompile Include="PlayGame.cpp" />
@@ -159,7 +160,7 @@
     <ClInclude Include="Card.h" />
     <ClInclude Include="CardInPlay.h" />
     <ClInclude Include="Deck.h" />
-    <ClInclude Include="Header.h" />
+    <ClInclude Include="HowToPlay.h" />
     <ClInclude Include="PlayArea.h" />
     <ClInclude Include="PlayGame.h" />
   </ItemGroup>

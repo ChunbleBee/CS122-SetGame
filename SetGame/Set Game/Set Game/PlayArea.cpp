@@ -91,7 +91,7 @@ void PlayArea::cardClickCheck(sf::RenderWindow & window)
 				mSounds[1].play();
 			}
 		}
-		
+
 	}
 }
 
@@ -104,7 +104,7 @@ void PlayArea::singlePlayerMode(sf::RenderWindow & window)
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
-			if (event.type == sf::Event::Closed) 
+			if (event.type == sf::Event::Closed)
 			{
 				window.close();
 			}
@@ -158,7 +158,7 @@ void PlayArea::singlePlayerMode(sf::RenderWindow & window)
 				drawCard();
 			}
 		}
-		
+
 		window.clear();
 		drawPlayArea(window);
 		window.display();
@@ -187,5 +187,3 @@ void PlayArea::loadSounds()
 		cout << "Failed to load sound 3." << endl;
 	mSounds[3].setBuffer(mBuffers[3]);
 }
-
-

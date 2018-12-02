@@ -4,6 +4,7 @@
 
 #include "PlayGame.h"
 #include "PlayArea.h"
+#include "HowToPlay.h"
 
 #include "Test.cpp"
 
@@ -26,6 +27,11 @@ int main()
 	//	window.draw(CIP);
 	//	window.display();
 	//}
+
+	HowToPlay instructions;
+	instructions.demo(window);
+
+
 
 	PlayArea solo;
 	solo.singlePlayerMode(window);
