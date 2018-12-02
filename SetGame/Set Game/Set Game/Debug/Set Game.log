@@ -1,0 +1,13 @@
+﻿  PlayArea.cpp
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(11): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(13): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(50): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(51): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(52): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(65): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(80): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(118): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(130): warning C4018: '<': signed/unsigned mismatch
+  Set Game.vcxproj -> C:\Users\Maqz\Documents\GitHub\SetGame\Set Game\Debug\Set Game.exe
+  Set Game.vcxproj -> C:\Users\Maqz\Documents\GitHub\SetGame\Set Game\Debug\Set Game.pdb (Full PDB)
