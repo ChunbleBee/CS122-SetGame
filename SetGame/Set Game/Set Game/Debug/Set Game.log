@@ -17,11 +17,11 @@ c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(153): warn
   c:\users\maqz\documents\github\setgame\set game\sfml\include\sfml\graphics\text.hpp(210): note: see declaration of 'sf::Text::setColor'
 c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(166): warning C4996: 'sf::Text::setColor': was declared deprecated
   c:\users\maqz\documents\github\setgame\set game\sfml\include\sfml\graphics\text.hpp(210): note: see declaration of 'sf::Text::setColor'
-c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(198): warning C4996: 'sf::Text::setColor': was declared deprecated
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(195): warning C4996: 'sf::Text::setColor': was declared deprecated
   c:\users\maqz\documents\github\setgame\set game\sfml\include\sfml\graphics\text.hpp(210): note: see declaration of 'sf::Text::setColor'
-c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(222): warning C4996: 'sf::Text::setColor': was declared deprecated
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(219): warning C4996: 'sf::Text::setColor': was declared deprecated
   c:\users\maqz\documents\github\setgame\set game\sfml\include\sfml\graphics\text.hpp(210): note: see declaration of 'sf::Text::setColor'
-c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(224): warning C4996: 'sf::Text::setColor': was declared deprecated
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(221): warning C4996: 'sf::Text::setColor': was declared deprecated
   c:\users\maqz\documents\github\setgame\set game\sfml\include\sfml\graphics\text.hpp(210): note: see declaration of 'sf::Text::setColor'
   Set Game.vcxproj -> C:\Users\Maqz\Documents\GitHub\SetGame\Set Game\Debug\Set Game.exe
   Set Game.vcxproj -> C:\Users\Maqz\Documents\GitHub\SetGame\Set Game\Debug\Set Game.pdb (Full PDB)

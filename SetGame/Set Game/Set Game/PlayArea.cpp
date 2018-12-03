@@ -171,18 +171,15 @@ void PlayArea::singlePlayerMode(sf::RenderWindow & window)
 		}
 
 		// draw cards (in groups of 3) until there is a set or the deck is empty
-		while ((mCardsInPlay.size() < 12 || !anySets()) && !gameOver)
+		while (!mDeck.isEmpty() && (mCardsInPlay.size() < 12 || !anySets()))
 		{
-			std::cout << mCardsInPlay.size() << std::endl;
-			if (mDeck.isEmpty())
-				gameOver = true;
-			else
-			{
-				drawCard();
-				drawCard();
-				drawCard();
-			}
+			drawCard();
+			drawCard();
+			drawCard();
 		}
+
+		if (mDeck.isEmpty() && !anySets())
+			gameOver = true;
 
 		window.clear();
 		window.draw(gameMessage);
@@ -193,8 +190,8 @@ void PlayArea::singlePlayerMode(sf::RenderWindow & window)
 
 	// Final display
 	timeDisplay.stop();
-	gameMessage.setPosition(sf::Vector2f(860, 80));
-	gameMessage.setString("Game Complete! \nClick here to continue.");
+	gameMessage.setPosition(sf::Vector2f(960, 80));
+	gameMessage.setString("Game Complete! \nClick here \nto continue.");
 	gameMessage.setColor(sf::Color(255, 255, 255, 255));
 
 	bool continueClick = false;
