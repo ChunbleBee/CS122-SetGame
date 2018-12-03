@@ -1,6 +1,7 @@
 #include "Deck.h"
 
-void Deck::buildDeck(int deckSize, int difficulty) {
+void Deck::buildDeck(int deckSize, int difficulty)
+{
 	//shape, color, fill, number
 	//Each given value 1-3
 
@@ -12,7 +13,8 @@ void Deck::buildDeck(int deckSize, int difficulty) {
 
 	//Size = Small, Med, Large
 
-	for (int i = 0; i < deckSize; i++) {
+	for (int i = 0; i < deckSize; i++)
+	{
 		mCardDeck[i] = Card();
 		mCardDeck[i].setShape(i % 3);
 		mCardDeck[i].setColor(div(i, 3).quot % 3);
@@ -25,8 +27,10 @@ void Deck::buildDeck(int deckSize, int difficulty) {
 
 void Deck::shuffle() {
 	srand(time(NULL));
-	for (int i = 0; i < 200; i++) {
-		for (int j = 0; j < mCardDeck.size(); j++) {
+	for (int i = 0; i < 200; i++)
+	{
+		for (int j = 0; j < mCardDeck.size(); j++)
+		{
 			int rIndex = rand() % mCardDeck.size();
 			Card temp = mCardDeck[j];
 			mCardDeck[j] = mCardDeck[rIndex];
@@ -35,21 +39,31 @@ void Deck::shuffle() {
 	}
 }
 
-Deck::Deck(int difficulty) {
+int Deck::cardsLeft()
+{
+	return this->mCardDeck.size();
+}
+
+Deck::Deck(int difficulty)
+{
 		mCardDeck.resize(pow(3, difficulty));
 
 		buildDeck(mCardDeck.size(), difficulty);
-
-		shuffle();
-
 }
 
-Card Deck::dealCard() {
+vector<Card> Deck::getDeck()
+{
+	return this->mCardDeck;
+}
+
+Card Deck::dealCard()
+{
 	Card out = mCardDeck.back();
 	mCardDeck.pop_back();
 	return out;
 }
 
-bool Deck::isEmpty() {
+bool Deck::isEmpty()
+{
 	return (this->mCardDeck.size() == 0);
 }

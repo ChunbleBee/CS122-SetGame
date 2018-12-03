@@ -49,17 +49,23 @@ bool PlayArea::isSet(Card const & c1, Card const & c2, Card const & c3)
 
 bool PlayArea::anySets()
 {
-	if (mCardsInPlay.size() > 3){
-		for (int i = 0; i < mCardsInPlay.size() - 3; i++) {
-			for (int j = i + 1; j < mCardsInPlay.size() - 2; j++) {
-				for (int k = j + 1; k < mCardsInPlay.size() - 1; k++) {
-					if (isSet(mCardsInPlay[i], mCardsInPlay[j], mCardsInPlay[k])) {
+	if (mCardsInPlay.size() > 3)
+	{
+		for (int i = 0; i < mCardsInPlay.size() - 3; i++)
+		{
+			for (int j = i + 1; j < mCardsInPlay.size() - 2; j++)
+			{
+				for (int k = j + 1; k < mCardsInPlay.size() - 1; k++)
+				{
+					if (isSet(mCardsInPlay[i], mCardsInPlay[j], mCardsInPlay[k]))
+					{
 						return true;
 					}
 				}
 			}
 		}
 	}
+
 	return false;
 }
 
@@ -91,7 +97,6 @@ void PlayArea::cardClickCheck(sf::RenderWindow & window)
 				mSounds[1].play();
 			}
 		}
-
 	}
 }
 

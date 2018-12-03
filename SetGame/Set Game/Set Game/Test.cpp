@@ -4,13 +4,19 @@ Test::Test()
 {
 	if (testCard())
 	{
-		/*if (testDeck())
+		if (testDeck())
 		{
 			if (testIsSet())
 			{
-				
+				/*
+					if(){
+						if (){
+							cout << "All tests passed!" << endl;
+						}
+					}
+				*/	
 			}
-		}*/
+		}
 	}
 }
 
@@ -52,7 +58,8 @@ bool Test::testCardDefault()
 	//shape, color, fill, number, (size - unused)
 	vector<int> attributes = c.getAttributes();
 
-	for (int i = 0; i < attributes.size(); i++) {
+	for (int i = 0; i < attributes.size(); i++)
+	{
 		if (attributes[i] != 0)
 		{
 			cout << " Failed making default attributes. ";
@@ -60,7 +67,12 @@ bool Test::testCardDefault()
 		}
 	}
 
-	if (c.getImage().compare("") != 0) {
+	/*colors = "rgb",
+		numbers = "123",
+		shapes = "owd",
+		fills = "odf";*/
+	if (c.getImage().compare("Set Cards/r1oo.PNG") != 0)
+	{
 		cout << " Failed making default image string. ";
 		return false;
 	}
@@ -142,9 +154,12 @@ bool Test::testCardSetters()
 						if (c.getImage().compare("An Image") == 0)
 						{
 							c.setSelected(true);
-							if (c.isSelected()){
+							if (c.isSelected())
+							{
 									return true;
-							} else {
+							}
+							else
+							{
 								cout << " Failed to set selected mode!";
 							}
 						}
@@ -185,7 +200,101 @@ bool Test::testDeck()
 {
 	Deck d;
 	
-	
+	cout << "Checking default deck... ";
+	vector<Card> c = d.getDeck();
 
+	for (int i = 0; i < c.size(); i++) {
+		if (c[i].getShape() != i % 3
+		|| c[i].getColor() != div(i, 3).quot % 3
+		|| c[i].getFill() != div(i, 9).quot % 3
+		|| c[i].getNumber() != div(i, 27).quot % 3
+		|| c[i].getSize() != div(i, 81).quot % 3) {
+			cout << "Failed to set default deck!" << endl;
+			return false;
+		}
+	}
+
+	cout << "Passed! " << endl << "Testing card deal... ";
+
+	d.dealCard();
+	d.dealCard();
+	d.dealCard();
+
+	//shape, color, fill, number, (size - unused)
+	if (d.dealCard().getColor() != 1) //First non-red card in deck
+	{
+		cout << "Failed!" << endl;
+		
+	}
+
+
+	cout << "Passed! \nTesting isEmpty()... ";	
+	if (d.isEmpty() == false)
+	{
+		//Mills through d, deleting all cards. -4 for the previous cards deleted.
+		while (d.cardsLeft() > 0)
+		{
+			d.dealCard();
+		}
+
+		if (d.isEmpty() == true)
+		{
+			cout << "Passed!" << endl << "All deck tests passed!" << endl;
+		}
+		else
+		{
+			cout << "Failed at empty deck test!";
+			return false;
+		}
+	}
+	else
+	{
+		cout << "Failed to test non-empty deck!";
+	}
+
+
+	return true;
+}
+
+bool Test::testIsSet()
+{
+	PlayArea p;
+	Card c1, c2, c3;
+
+
+	cout << "Testing isSet() with trivial set... ";
+	if (p.isSet(c1, c2, c3))
+	{
+		cout << "Passed Trivial set! \nTesting non-equal set... ";
+		for (int i = 0; i < 5; i++) {
+			c2.setAttribute(1, i);
+			c3.setAttribute(2, i);
+		}
+		if (p.isSet(c1, c2, c3))
+		{
+			cout << "Passed non-equal set test! \nTesting non-set...";
+			c3.setColor(1); //Set to same color as c2
+			
+			if (p.isSet(c1, c2, c3) == false)
+			{
+				cout << "Passed non-set test!" << endl;
+				return true;
+			}
+			else
+			{
+				cout << "Non-set test failed!" << endl;
+				return false;
+			}
+		}
+		else
+		{
+			cout << "Failed non-equal set test!" << endl;
+			return false;
+		}
+	}
+	else
+	{
+		cout << "Failed trivial set!" << endl;
+	}
 	return false;
 }

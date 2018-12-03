@@ -15,10 +15,10 @@ private:
 public:
 	Deck(int difficulty = 4);
 
-	Card * getDeck();
+	vector<Card> getDeck();
 	
 	void shuffle();
-
+	int cardsLeft();
 	Card dealCard();
 	bool isEmpty();
 };
