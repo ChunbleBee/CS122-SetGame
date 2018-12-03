@@ -1,5 +1,5 @@
 #include <SFML/Graphics.hpp>
-#include "AnimationTimer.hpp"
+#include "AnimationTimer.h"
 
 class TransformationAnimation {
     sf::Transformable * transformable;

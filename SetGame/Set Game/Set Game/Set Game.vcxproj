@@ -153,18 +153,23 @@
     <ClCompile Include="Deck.cpp" />
     <ClCompile Include="HowToPlay.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="PlayArea.cpp" />
     <ClCompile Include="PlayGame.cpp" />
     <ClCompile Include="Stopwatch.cpp" />
+    <ClCompile Include="TransformationAnimation.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AnimationTimer.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="CardInPlay.h" />
     <ClInclude Include="Deck.h" />
     <ClInclude Include="HowToPlay.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="PlayArea.h" />
     <ClInclude Include="PlayGame.h" />
     <ClInclude Include="Stopwatch.h" />
+    <ClInclude Include="TransformationAnimation.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="readme.txt" />

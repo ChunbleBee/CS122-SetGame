@@ -1,18 +1,27 @@
-﻿  Stopwatch.cpp
-c:\users\maqz\documents\github\setgame\set game\set game\stopwatch.cpp(49): warning C4018: '<': signed/unsigned mismatch
-  PlayArea.cpp
-c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(12): warning C4018: '<': signed/unsigned mismatch
-c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(14): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(54): warning C4018: '<': signed/unsigned mismatch
-c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(56): warning C4018: '<': signed/unsigned mismatch
-c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(58): warning C4018: '<': signed/unsigned mismatch
-c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(74): warning C4018: '<': signed/unsigned mismatch
-c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(90): warning C4018: '<': signed/unsigned mismatch
-c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(131): warning C4018: '<': signed/unsigned mismatch
-c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(145): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  main.cpp
+﻿  PlayArea.cpp
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(15): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(17): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(57): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(59): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(61): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(77): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(93): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(142): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(158): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(113): warning C4996: 'sf::Text::setColor': was declared deprecated
+  c:\users\maqz\documents\github\setgame\set game\sfml\include\sfml\graphics\text.hpp(210): note: see declaration of 'sf::Text::setColor'
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(131): warning C4996: 'sf::Text::setColor': was declared deprecated
+  c:\users\maqz\documents\github\setgame\set game\sfml\include\sfml\graphics\text.hpp(210): note: see declaration of 'sf::Text::setColor'
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(153): warning C4996: 'sf::Text::setColor': was declared deprecated
+  c:\users\maqz\documents\github\setgame\set game\sfml\include\sfml\graphics\text.hpp(210): note: see declaration of 'sf::Text::setColor'
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(166): warning C4996: 'sf::Text::setColor': was declared deprecated
+  c:\users\maqz\documents\github\setgame\set game\sfml\include\sfml\graphics\text.hpp(210): note: see declaration of 'sf::Text::setColor'
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(198): warning C4996: 'sf::Text::setColor': was declared deprecated
+  c:\users\maqz\documents\github\setgame\set game\sfml\include\sfml\graphics\text.hpp(210): note: see declaration of 'sf::Text::setColor'
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(222): warning C4996: 'sf::Text::setColor': was declared deprecated
+  c:\users\maqz\documents\github\setgame\set game\sfml\include\sfml\graphics\text.hpp(210): note: see declaration of 'sf::Text::setColor'
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(224): warning C4996: 'sf::Text::setColor': was declared deprecated
+  c:\users\maqz\documents\github\setgame\set game\sfml\include\sfml\graphics\text.hpp(210): note: see declaration of 'sf::Text::setColor'
   Set Game.vcxproj -> C:\Users\Maqz\Documents\GitHub\SetGame\Set Game\Debug\Set Game.exe
   Set Game.vcxproj -> C:\Users\Maqz\Documents\GitHub\SetGame\Set Game\Debug\Set Game.pdb (Full PDB)

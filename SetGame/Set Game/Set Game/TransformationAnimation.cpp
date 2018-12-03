@@ -1,6 +1,6 @@
-#include "Animation.hpp"
+#include "TransformationAnimation.h"
 
-Animation::Animation(sf::Transformable * transformable) {
+TransformationAnimation::TransformationAnimation(sf::Transformable * transformable) {
     this->transformable = transformable;
 
     TimedTransform(transformable->getPosition(), 0.0f, kLinear);
@@ -8,9 +8,9 @@ Animation::Animation(sf::Transformable * transformable) {
     TimedRotate(transformable->getRotation(), 0.0f, kLinear);
 };
 
-Animation::~Animation() {};
+TransformationAnimation::~TransformationAnimation() {};
 
-void Animation::TimedTransform(sf::Vector2f vector, float transform_time_ms, MovementMode mode) {
+void TransformationAnimation::TimedTransform(sf::Vector2f vector, float transform_time_ms, MovementMode mode) {
     this->transformation.Set(
         transformable->getPosition(),
         vector,
@@ -19,7 +19,7 @@ void Animation::TimedTransform(sf::Vector2f vector, float transform_time_ms, Mov
     );
 };
 
-void Animation::TimedScale(sf::Vector2f vector, float transform_time_ms, MovementMode mode) {
+void TransformationAnimation::TimedScale(sf::Vector2f vector, float transform_time_ms, MovementMode mode) {
     this->scaling.Set(
         transformable->getScale(),
         vector,
@@ -28,7 +28,7 @@ void Animation::TimedScale(sf::Vector2f vector, float transform_time_ms, Movemen
     );
 };
 
-void Animation::TimedRotate(float vector, float transform_time_ms, MovementMode mode) {
+void TransformationAnimation::TimedRotate(float vector, float transform_time_ms, MovementMode mode) {
     this->rotation.Set(
         transformable->getRotation(),
         vector,
@@ -37,7 +37,7 @@ void Animation::TimedRotate(float vector, float transform_time_ms, MovementMode 
     );
 };
 
-void Animation::RunUpdate() {
+void TransformationAnimation::RunUpdate() {
     transformable->setPosition(transformation.GetPosition());
     transformable->setScale(scaling.GetPosition());
     transformable->setRotation(rotation.GetPosition());

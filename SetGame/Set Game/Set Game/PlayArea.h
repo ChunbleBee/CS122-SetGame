@@ -26,4 +26,6 @@ private:
 
 	sf::SoundBuffer mBuffers[4];
 	sf::Sound mSounds[4];
+
+	sf::Font mFont;
 };
