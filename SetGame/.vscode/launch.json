@@ -8,14 +8,13 @@
             "name": "(lldb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/Debug_OSX/main",
+            "program": "enter program name, for example ${workspaceFolder}/a.out",
             "args": [],
-            "stopAtEntry": true,
-            "cwd": "${workspaceFolder}/Debug_OSX",
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
             "environment": [],
-            "externalConsole": false,
-            "internalConsoleOptions": "openOnSessionStart",
-            "MIMode": "lldb",
+            "externalConsole": true,
+            "MIMode": "lldb"
         }
     ]
 }

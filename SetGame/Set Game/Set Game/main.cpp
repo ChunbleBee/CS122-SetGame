@@ -1,4 +1,3 @@
-#pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
@@ -6,7 +5,7 @@
 #include "PlayArea.h"
 #include "HowToPlay.h"
 
-#include "Test.cpp"
+#include "Test.h"
 
 int main()
 {
