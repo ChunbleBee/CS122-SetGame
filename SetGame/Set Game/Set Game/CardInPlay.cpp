@@ -1,6 +1,6 @@
 #include "CardInPlay.h"
 
-CardInPlay::CardInPlay(Card & enteringPlay) : Card(enteringPlay)
+CardInPlay::CardInPlay(Card const & enteringPlay) : Card(enteringPlay)
 {
 	if (!mTexture.loadFromFile(this->getImage()))
 		cout << "Error loading Texture form file" << endl;

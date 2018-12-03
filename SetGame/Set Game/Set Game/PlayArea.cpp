@@ -123,10 +123,12 @@ void PlayArea::singlePlayerMode(sf::RenderWindow & window)
 				// If they do remove them
 				for (int i = 0; i < mCardsInPlay.size();)
 				{
-					if (mCardsInPlay[i].isSelected())
+					if (mCardsInPlay[i].isSelected()) {
 						mCardsInPlay.erase(mCardsInPlay.begin() + i);
-					else
+					}
+					else {
 						i++;
+					}
 				}
 				mSounds[2].play();
 			}
@@ -135,8 +137,9 @@ void PlayArea::singlePlayerMode(sf::RenderWindow & window)
 				// reset cards selection
 				for (int i = 0; i < mCardsInPlay.size(); i++)
 				{
-					if (mCardsInPlay[i].isSelected())
+					if (mCardsInPlay[i].isSelected()) {
 						mCardsInPlay[i].switchSelected();
+					}
 				}
 				mSounds[3].play();
 			}

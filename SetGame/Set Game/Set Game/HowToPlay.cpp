@@ -90,8 +90,23 @@ void HowToPlay::pageTwo(sf::RenderWindow & window)
 	text[5].setPosition(700, 560);
 
 
-	CardInPlay cards[12];
+	CardInPlay cards[12] = {
+		Card(0, 0, 0, 0, 0),
+		Card(0, 0, 0, 0, 0),
+		Card(0, 0, 0, 0, 0),
+		Card(0, 0, 0, 0, 0),
+		Card(0, 0, 0, 0, 0),
+		Card(0, 0, 0, 0, 0),
+		Card(0, 0, 0, 0, 0),
+		Card(0, 0, 0, 0, 0),
+		Card(0, 0, 0, 0, 0),
+		Card(0, 0, 0, 0, 0),
+		Card(0, 0, 0, 0, 0),
+		Card(0, 0, 0, 0, 0)
+	};
 
+
+/*
 	cards[0].changeCard(Card(0, 0, 0, 0, 0));
 	cards[1].changeCard(Card(0, 0, 0, 0, 0));
 	cards[2].changeCard(Card(0, 0, 0, 0, 0));
@@ -107,6 +122,7 @@ void HowToPlay::pageTwo(sf::RenderWindow & window)
 	cards[9].changeCard(Card(0, 0, 0, 0, 0));
 	cards[10].changeCard(Card(0, 0, 0, 0, 0));
 	cards[11].changeCard(Card(0, 0, 0, 0, 0));
+	*/
 
 	
 
