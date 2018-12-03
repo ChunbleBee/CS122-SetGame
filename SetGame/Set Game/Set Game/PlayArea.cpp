@@ -11,8 +11,8 @@ void PlayArea::drawPlayArea(sf::RenderWindow & window)
 {
 	for (int i = 0; i < mCardsInPlay.size(); i++)
 	{
-		mCardsInPlay[i].setScale(0.4, 0.4); // shrink sprites for screen size
-		mCardsInPlay[i].setPosition(10 + (i / 3) * 150, 10 + (i % 3) * 200); // move card sprite
+		mCardsInPlay[i].setScale(0.45, 0.45); // shrink sprites for screen size
+		mCardsInPlay[i].setPosition(20 + (i / 3) * 180, 20 + (i % 3) * 236); // move card sprite
 
 		mCardsInPlay[i].refreshTexture();
 

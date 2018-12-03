@@ -12,6 +12,8 @@ public:
 
 	void pageOne(sf::RenderWindow & window);
 	void pageTwo(sf::RenderWindow & window);
+	void pageThree(sf::RenderWindow & window);
+	void pageFour(sf::RenderWindow & window);
 
 private:
 	sf::Font mFont;
