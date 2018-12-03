@@ -5,7 +5,7 @@
 #include "PlayArea.h"
 #include "HowToPlay.h"
 
-#include "Test.h"
+#include "Test.cpp"
 
 int main()
 {
