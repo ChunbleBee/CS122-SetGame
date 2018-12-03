@@ -1,27 +1,43 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-#include "PlayGame.h"
 #include "PlayArea.h"
+#include "Menu.h"
 #include "HowToPlay.h"
 
 #include "Test.cpp"
 
 int main()
 {
-	Test t;
+	//Test t;
 
 	sf::RenderWindow window;
 	window.create(sf::VideoMode(1280, 720), "Set Game");
 
-	HowToPlay instructions;
-	instructions.demo(window);
+	while (window.isOpen())
+	{
+		Menu m;
+		switch (m.renderMenu(window))
+			{
+			case 0:
+			{
+				PlayArea p;
+				p.singlePlayerMode(window);
+			}
+			break;
 
-	PlayArea solo;
-	solo.singlePlayerMode(window);
+			case 1:
+			{
+				HowToPlay h;
+				h.demo(window);
+			}
+			break;
 
-	PlayGame set;
-
-
+			default:
+			{
+				exit(0);
+			}
+		}
+	}
 	return 0;
 }
