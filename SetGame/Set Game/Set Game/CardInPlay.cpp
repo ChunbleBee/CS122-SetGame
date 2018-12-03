@@ -1,6 +1,6 @@
 #include "CardInPlay.h"
 
-CardInPlay::CardInPlay(Card & enteringPlay) : Card(enteringPlay)
+CardInPlay::CardInPlay(Card const & enteringPlay) : Card(enteringPlay)
 {
 	if (!mTexture.loadFromFile(this->getImage()))
 		cout << "Error loading Texture form file" << endl;
@@ -41,6 +41,9 @@ void CardInPlay::changeCard(Card & enteringPlay)
 	this->setNumber(enteringPlay.getNumber());
 	this->setSize(enteringPlay.getSize());
 	this->setImage(enteringPlay.getImage());
+
+	if (!mTexture.loadFromFile(this->getImage()))
+		cout << "Error loading Texture form file" << endl;
 }
 
 void CardInPlay::refreshTexture()

@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/Debug_OSX/main",
             "args": [],
-            "stopAtEntry": false,
+            "stopAtEntry": true,
             "cwd": "${workspaceFolder}/Debug_OSX",
             "environment": [],
             "externalConsole": false,
