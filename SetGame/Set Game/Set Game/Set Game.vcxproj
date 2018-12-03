@@ -155,6 +155,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PlayArea.cpp" />
     <ClCompile Include="PlayGame.cpp" />
+    <ClCompile Include="Stopwatch.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Card.h" />
@@ -163,6 +164,7 @@
     <ClInclude Include="HowToPlay.h" />
     <ClInclude Include="PlayArea.h" />
     <ClInclude Include="PlayGame.h" />
+    <ClInclude Include="Stopwatch.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="readme.txt" />
