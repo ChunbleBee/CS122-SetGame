@@ -1,13 +1,18 @@
-﻿  PlayArea.cpp
+﻿  Stopwatch.cpp
+c:\users\maqz\documents\github\setgame\set game\set game\stopwatch.cpp(49): warning C4018: '<': signed/unsigned mismatch
+  PlayArea.cpp
 c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(12): warning C4018: '<': signed/unsigned mismatch
 c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(14): warning C4305: 'argument': truncation from 'double' to 'float'
 c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(53): warning C4018: '<': signed/unsigned mismatch
 c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(54): warning C4018: '<': signed/unsigned mismatch
-c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(55): warning C4018: '<': signed/unsigned mismatch
-c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(68): warning C4018: '<': signed/unsigned mismatch
-c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(84): warning C4018: '<': signed/unsigned mismatch
-c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(124): warning C4018: '<': signed/unsigned mismatch
-c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(136): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(56): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(58): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(74): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(90): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(131): warning C4018: '<': signed/unsigned mismatch
+c:\users\maqz\documents\github\setgame\set game\set game\playarea.cpp(145): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  main.cpp
   Set Game.vcxproj -> C:\Users\Maqz\Documents\GitHub\SetGame\Set Game\Debug\Set Game.exe
   Set Game.vcxproj -> C:\Users\Maqz\Documents\GitHub\SetGame\Set Game\Debug\Set Game.pdb (Full PDB)

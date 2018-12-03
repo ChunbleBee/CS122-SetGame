@@ -102,6 +102,8 @@ void PlayArea::cardClickCheck(sf::RenderWindow & window)
 
 void PlayArea::singlePlayerMode(sf::RenderWindow & window)
 {
+	Stopwatch timeDisplay(sf::Vector2f(1060, 20));
+	timeDisplay.start();
 	bool gameOver = false;
 
 	while (window.isOpen() && !gameOver)
@@ -169,6 +171,31 @@ void PlayArea::singlePlayerMode(sf::RenderWindow & window)
 
 		window.clear();
 		drawPlayArea(window);
+		timeDisplay.draw(window);
+		window.display();
+	}
+
+	// Final display
+	timeDisplay.stop();
+	bool continueClick = false;
+	while (window.isOpen() && !continueClick)
+	{
+		sf::Event event;
+		while (window.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+			{
+				window.close();
+			}
+			else if (event.type == sf::Event::MouseButtonPressed)
+			{
+				continueClick = true;
+			}
+		}
+
+		window.clear();
+		drawPlayArea(window);
+		timeDisplay.draw(window);
 		window.display();
 	}
 }
