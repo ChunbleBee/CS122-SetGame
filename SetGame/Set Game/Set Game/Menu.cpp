@@ -2,30 +2,24 @@
 
 Menu::Menu()
 {
-	mHeader.setString("Set!");
-	mHeader.setCharacterSize(60);
-	mHeader.setColor(sf::Color::Magenta);
-	mHeader.setFont(mFont);
-	mHeader.setPosition(640 - (mHeader.getGlobalBounds().width), 60);
-
-	cout << mHeader.getGlobalBounds().width << ","
-		<< mHeader.getGlobalBounds().height << endl;
-
-	mOptions.resize(3);
-	mOptions[0].setString("Play Game");
-	mOptions[1].setString("Show Instructions");
-	mOptions[2].setString("Exit");
-
-	for (int i = 0; i < mOptions.size(); i++) {
-		mOptions[i].setCharacterSize(30);
-		mOptions[i].setColor(sf::Color::Magenta);
-		mOptions[i].setFont(mFont);
-		mOptions[i].setPosition( 640.0 - (mOptions[i].getGlobalBounds()).height, 120.0 + 60 * (i + 1));
-	}
-
 	if (!mFont.loadFromFile("Fonts/comic.ttf"))
 	{
 		cout << "Error Loading font." << endl;
+	}
+
+	mHeader = sf::Text("Set!", mFont, 120);
+	mHeader.setColor(sf::Color::Magenta);
+	mHeader.setPosition(640 - mHeader.getGlobalBounds().width/2, 40);
+
+	mOptions.resize(3);
+	mOptions[0] = sf::Text("Play Game", mFont, 30);
+	mOptions[1] = sf::Text("Instructions", mFont, 30);
+	mOptions[2] = sf::Text("Exit", mFont, 30);
+
+	for (int i = 0; i < mOptions.size(); i++)
+	{
+		mOptions[i].setColor(sf::Color::Magenta);
+		mOptions[i].setPosition(640 - mOptions[i].getGlobalBounds().width/2, 140 + 60 * (i + 1));
 	}
 }
 
@@ -48,20 +42,21 @@ int Menu::renderMenu(sf::RenderWindow & window)
 					return out;
 				}
 			}
-
-			window.clear();
-			drawText(window);
-			window.display();
 		}
+
+		changeTextColor(window);
+		window.clear();
+		drawText(window);
+		window.display();
 	}
 }
 
 int Menu::checkMenuPressed(sf::RenderWindow & window)
 {
-	sf::Vector2f adjusted_mouse_position = window.mapPixelToCoords(sf::Mouse::getPosition(window));
+	sf::Vector2f adjMousePos = adjustedMousePosition(window);
 	for (int i = 0; i < mOptions.size(); i++)
 	{
-		if (mOptions[i].getGlobalBounds().contains(adjusted_mouse_position))
+		if (mOptions[i].getGlobalBounds().contains(adjMousePos))
 		{
 			return i;
 		}
@@ -78,4 +73,21 @@ void Menu::drawText(sf::RenderWindow & window)
 	{
 		window.draw(mOptions[i]);
 	}
+}
+
+void Menu::changeTextColor(sf::RenderWindow & window) {
+	sf::Vector2f adjMousePos = adjustedMousePosition(window);
+	if (mHeader.getGlobalBounds().contains(adjMousePos)) {
+		mHeader.setColor(sf::Color(rand() % 256, rand() % 256, rand() % 256, 255));
+	}
+
+	for (int i = 0; i < mOptions.size(); i++) {
+		if (mOptions[i].getGlobalBounds().contains(adjMousePos)) {
+			mOptions[i].setColor(sf::Color(rand() % 256, rand() % 256, rand() % 256, 255));
+		}
+	}
+}
+
+sf::Vector2f Menu::adjustedMousePosition(sf::RenderWindow & window) {
+	return 	window.mapPixelToCoords(sf::Mouse::getPosition(window));
 }
