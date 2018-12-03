@@ -112,6 +112,14 @@ void PlayArea::singlePlayerMode(sf::RenderWindow & window)
 	gameMessage.setPosition(sf::Vector2f(1060, 80));
 	gameMessage.setColor(sf::Color(0, 0, 0, 0));
 
+	sf::Text menuButton;
+	menuButton.setFont(mFont);
+	menuButton.setCharacterSize(42);
+	menuButton.setPosition(sf::Vector2f(1060, 640));
+	menuButton.setString("Main Menu");
+
+	sf::Vector2f adjusted_mouse_position;
+
 	Stopwatch timeDisplay(sf::Vector2f(1060, 20));
 	timeDisplay.start();
 	bool gameOver = false;
@@ -129,6 +137,12 @@ void PlayArea::singlePlayerMode(sf::RenderWindow & window)
 			{
 				cardClickCheck(window);
 				gameMessage.setColor(sf::Color(0, 0, 0, 0));
+
+				adjusted_mouse_position = window.mapPixelToCoords((sf::Mouse::getPosition(window)));
+				if (menuButton.getGlobalBounds().contains(adjusted_mouse_position))
+				{
+					gameOver = true;
+				}
 			}
 		}
 
@@ -179,49 +193,24 @@ void PlayArea::singlePlayerMode(sf::RenderWindow & window)
 		}
 
 		if (mDeck.isEmpty() && !anySets())
-			gameOver = true;
-
-		window.clear();
-		window.draw(gameMessage);
-		drawPlayArea(window);
-		timeDisplay.draw(window);
-		window.display();
-	}
-
-	// Final display
-	timeDisplay.stop();
-	gameMessage.setPosition(sf::Vector2f(960, 80));
-	gameMessage.setString("Game Complete! \nClick here \nto continue.");
-	gameMessage.setColor(sf::Color(255, 255, 255, 255));
-
-	bool continueClick = false;
-	while (window.isOpen() && !continueClick)
-	{
-		sf::Event event;
-		while (window.pollEvent(event))
 		{
-			if (event.type == sf::Event::Closed)
-			{
-				window.close();
-			}
-			else if (event.type == sf::Event::MouseButtonPressed)
-			{
-				sf::Vector2f adjusted_mouse_position = window.mapPixelToCoords((sf::Mouse::getPosition(window)));
-				if (gameMessage.getGlobalBounds().contains(adjusted_mouse_position))
-				{
-					continueClick = true;
-				}
-			}
-		}
-		
-		sf::Vector2f adjusted_mouse_position = window.mapPixelToCoords((sf::Mouse::getPosition(window)));
-		if (gameMessage.getGlobalBounds().contains(adjusted_mouse_position))
-			gameMessage.setColor(sf::Color(127, 255, 127, 255));
-		else
+			// Final display
+			timeDisplay.stop();
+			gameMessage.setString("Game Complete!");
 			gameMessage.setColor(sf::Color(255, 255, 255, 255));
+			gameMessage.setPosition(sf::Vector2f(960, 80));
+		}
+
+		adjusted_mouse_position = window.mapPixelToCoords((sf::Mouse::getPosition(window)));
+		if (menuButton.getGlobalBounds().contains(adjusted_mouse_position))
+			menuButton.setColor(sf::Color(127, 255, 127, 255));
+		else
+			menuButton.setColor(sf::Color(255, 255, 255, 255));
+
 
 		window.clear();
 		window.draw(gameMessage);
+		window.draw(menuButton);
 		drawPlayArea(window);
 		timeDisplay.draw(window);
 		window.display();
