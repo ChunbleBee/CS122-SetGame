@@ -208,12 +208,105 @@ void PlayArea::singlePlayerMode(sf::RenderWindow & window)
 	}
 }
 
-void PlayArea::multiplayerMode(sf::RenderWindow & window)
+void PlayArea::hostMultiplayer(sf::RenderWindow & window)
 {
-	sf::Int32 seed = connectMultiplayer();
+	sf::Int32 seed = connectMultiplayer(window, 'h');
 	mDeck.shuffle(seed);
 
-	//After this multiplayerMode is the same as SinglePlayerMode (for now)
+
+
+	Stopwatch timeDisplay(sf::Vector2f(1060, 20));
+	timeDisplay.start();
+	bool gameOver = false;
+
+	while (window.isOpen() && !gameOver)
+	{
+		sf::Event event;
+		while (window.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+			{
+				window.close();
+			}
+			else if (event.type == sf::Event::MouseButtonPressed)
+			{
+				cardClickCheck(window);
+				mGameMessage.setColor(sf::Color(0, 0, 0, 0));
+
+				mAdjustedMousePosition = window.mapPixelToCoords((sf::Mouse::getPosition(window)));
+				if (mMenuButton.getGlobalBounds().contains(mAdjustedMousePosition))
+				{
+					gameOver = true;
+				}
+			}
+		}
+
+		// when 3 cards are selected test if they make a set
+		if (mCardsSelected.size() == 3)
+		{
+			// Check if selected cards make a SET
+			if (isSet(mCardsInPlay[mCardsSelected[0]], mCardsInPlay[mCardsSelected[1]], mCardsInPlay[mCardsSelected[2]]))
+			{
+				setFound(); // If they do remove them
+			}
+			else
+			{
+				// reset cards selection
+				for (int i = 0; i < mCardsInPlay.size(); i++)
+				{
+					if (mCardsInPlay[i].isSelected()) {
+						mCardsInPlay[i].switchSelected();
+					}
+				}
+				mSounds[3].play();
+				mGameMessage.setString("Not a set.");
+				mGameMessage.setColor(sf::Color(255, 100, 100, 255));
+			}
+
+			//clear cards selected
+			mCardsSelected.clear();
+		}
+
+		// draw cards (in groups of 3) until there is a set or the deck is empty
+		while (!mDeck.isEmpty() && (mCardsInPlay.size() < 12 || !anySets()))
+		{
+			drawCard();
+			drawCard();
+			drawCard();
+		}
+
+		if (mDeck.isEmpty() && !anySets())
+		{
+			// Final display
+			timeDisplay.stop();
+			mGameMessage.setString("Game Complete!");
+			mGameMessage.setColor(sf::Color(255, 255, 255, 255));
+			mGameMessage.setPosition(sf::Vector2f(960, 140));
+		}
+
+		mAdjustedMousePosition = window.mapPixelToCoords((sf::Mouse::getPosition(window)));
+		if (mMenuButton.getGlobalBounds().contains(mAdjustedMousePosition))
+			mMenuButton.setColor(sf::Color(127, 255, 127, 255));
+		else
+			mMenuButton.setColor(sf::Color(255, 255, 255, 255));
+
+
+		window.clear();
+		window.draw(mGameMessage);
+		window.draw(mMenuButton);
+		window.draw(mScoreDisplay);
+		drawPlayArea(window);
+		timeDisplay.draw(window);
+		window.display();
+	}
+}
+
+void PlayArea::clientMultiplayer(sf::RenderWindow & window)
+{
+	sf::Int32 seed = connectMultiplayer(window, 'c');
+	mDeck.shuffle(seed);
+
+
 
 	Stopwatch timeDisplay(sf::Vector2f(1060, 20));
 	timeDisplay.start();
@@ -319,17 +412,14 @@ void PlayArea::setFound()
 	mGameMessage.setColor(sf::Color(200, 255, 200, 255));
 }
 
-sf::Int32 PlayArea::connectMultiplayer()
+sf::Int32 PlayArea::connectMultiplayer(sf::RenderWindow & window, char mode)
 {
 	sf::Int32 seed;
-	sf::Packet seedPack; //lol
+	sf::Packet seedPack;
 
-	cout << "Host (h) or join (j) game: ";
-	char mode;
-	cin >> mode;
 	if (mode == 'h')
 	{
-		hostSetup();
+		hostSetup(window);
 
 		seed = time(NULL);
 		seedPack << seed;
@@ -337,28 +427,56 @@ sf::Int32 PlayArea::connectMultiplayer()
 	}
 	else
 	{
-		clientSetup();
+		clientSetup(window);
 		mSocket.receive(seedPack);
 		seedPack >> seed;
 	}
 	return seed;
 }
 
-void PlayArea::hostSetup()
+void PlayArea::hostSetup(sf::RenderWindow & window)
 {
-	cout << "Host IP Address: " << sf::IpAddress::getLocalAddress() << endl;
+	sf::Text hostingMessage("Waiting for opponent to join. \nHost IP Address: " + sf::IpAddress::getLocalAddress().toString(), mFont, 42);
+	window.clear();
+	window.draw(hostingMessage);
+	window.display();
+	
 	sf::TcpListener listener;
 	listener.listen(5000);
 	listener.accept(mSocket);
 	cout << "Client Joined Game!" << endl;
 }
 
-void PlayArea::clientSetup()
+void PlayArea::clientSetup(sf::RenderWindow & window)
 {
-	string hostIP;
-	std::cout << "Enter Host IP Address: ";
-	std::cin >> hostIP;
-	if (mSocket.connect(hostIP, 5000) == sf::Socket::Done)
+	TextBox hostIP;
+	hostIP.setFont(mFont);
+	hostIP.setCharacterSize(42);
+	hostIP.setPosition(sf::Vector2f(0, 60));
+
+	sf::Text heading("Enter Host IP Address: ", mFont, 42);
+
+	bool entered = false;
+	while (window.isOpen() && !entered)
+	{
+		sf::Event event;
+		while (window.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+			{
+				window.close();
+			}
+			else if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Enter)
+				entered = true;
+			else if (event.type == sf::Event::TextEntered)
+				hostIP.addCharacterTyped(event);
+		}
+		window.clear();
+		window.draw(heading);
+		window.draw(hostIP);
+		window.display();
+	}
+	if (mSocket.connect(sf::IpAddress(hostIP.getString()), 5000) == sf::Socket::Done)
 	{
 		cout << "Connected!" << endl;
 	}

@@ -6,6 +6,7 @@
 #include "CardInPlay.h"
 #include "Deck.h"
 #include "Stopwatch.h"
+#include "TextBox.h"
 
 class PlayArea
 {
@@ -18,12 +19,15 @@ public:
 	void cardClickCheck(sf::RenderWindow & window); // Call where there is a click to select a card if the cursor is on a card.
 
 	void singlePlayerMode(sf::RenderWindow & window);
-	void multiplayerMode(sf::RenderWindow & window);
+
+	void hostMultiplayer(sf::RenderWindow & window);
+	void clientMultiplayer(sf::RenderWindow & window);
 
 	void setFound(); // call when a set is found
-	sf::Int32 connectMultiplayer(); // return rngSeed
-	void hostSetup();
-	void clientSetup();
+
+	sf::Int32 connectMultiplayer(sf::RenderWindow & window, char mode); // return rngSeed
+	void hostSetup(sf::RenderWindow & window);
+	void clientSetup(sf::RenderWindow & window);
 
 
 	void loadSounds();

@@ -14,14 +14,7 @@ int main()
 
 	sf::RenderWindow window;
 	window.create(sf::VideoMode(1280, 720), "Set Game");
-
-
-
-	// tryin out multiplayer v0.1
-	PlayArea mp;
-	mp.multiplayerMode(window);
-
-
+	window.setVerticalSyncEnabled(true);
 
 	while (window.isOpen())
 	{
@@ -37,14 +30,28 @@ int main()
 
 			case 1:
 			{
+				PlayArea p;
+				p.hostMultiplayer(window);
+			}
+			break;
+
+			case 2:
+			{
+				PlayArea p;
+				p.clientMultiplayer(window);
+			}
+			break;
+
+			case 3:
+			{
 				HowToPlay h;
-				h.demo(window);
+				h.demo(window);				
 			}
 			break;
 
 			default:
 			{
-				exit(0);
+				window.close();
 			}
 		}
 	}

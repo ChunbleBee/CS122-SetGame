@@ -11,10 +11,12 @@ Menu::Menu()
 	mHeader.setColor(sf::Color::Magenta);
 	mHeader.setPosition(640 - mHeader.getGlobalBounds().width/2, 40);
 
-	mOptions.resize(3);
-	mOptions[0] = sf::Text("Play Game", mFont, 30);
-	mOptions[1] = sf::Text("Instructions", mFont, 30);
-	mOptions[2] = sf::Text("Exit", mFont, 30);
+	mOptions.resize(5);
+	mOptions[0] = sf::Text("Play Single Player", mFont, 30);
+	mOptions[1] = sf::Text("Host Multiplayer", mFont, 30);
+	mOptions[2] = sf::Text("Join Multiplayer", mFont, 30);
+	mOptions[3] = sf::Text("How To Play", mFont, 30);
+	mOptions[4] = sf::Text("Exit", mFont, 30);
 
 	for (int i = 0; i < mOptions.size(); i++)
 	{
@@ -25,6 +27,8 @@ Menu::Menu()
 
 int Menu::renderMenu(sf::RenderWindow & window)
 {
+	int frameCount = 0;
+
 	while (window.isOpen()) {
 		sf::Event ev;
 
@@ -44,7 +48,13 @@ int Menu::renderMenu(sf::RenderWindow & window)
 			}
 		}
 
-		changeTextColor(window);
+		frameCount++;
+
+		if (frameCount > 5)
+		{
+			changeTextColor(window);
+			frameCount = 0;
+		}
 		window.clear();
 		drawText(window);
 		window.display();
@@ -69,7 +79,7 @@ void Menu::drawText(sf::RenderWindow & window)
 {
 	window.draw(mHeader);
 
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < mOptions.size(); i++)
 	{
 		window.draw(mOptions[i]);
 	}
