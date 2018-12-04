@@ -17,7 +17,7 @@ public:
 
 	vector<Card> getDeck();
 	
-	void shuffle();
+	void shuffle(sf::Int32 seed = time(NULL));
 	int cardsLeft();
 	Card dealCard();
 	bool isEmpty();

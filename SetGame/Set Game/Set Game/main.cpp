@@ -9,10 +9,19 @@
 
 int main()
 {
+
 	//Test t;
 
 	sf::RenderWindow window;
 	window.create(sf::VideoMode(1280, 720), "Set Game");
+
+
+
+	// tryin out multiplayer v0.1
+	PlayArea mp;
+	mp.multiplayerMode(window);
+
+
 
 	while (window.isOpen())
 	{

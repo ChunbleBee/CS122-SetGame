@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Audio.hpp>
+#include <SFML/Network.hpp>
 #include <list>
 #include "CardInPlay.h"
 #include "Deck.h"
@@ -17,8 +18,12 @@ public:
 	void cardClickCheck(sf::RenderWindow & window); // Call where there is a click to select a card if the cursor is on a card.
 
 	void singlePlayerMode(sf::RenderWindow & window);
+	void multiplayerMode(sf::RenderWindow & window);
 
-	void setFound();
+	void setFound(); // call when a set is found
+	sf::Int32 connectMultiplayer(); // return rngSeed
+	void hostSetup();
+	void clientSetup();
 
 
 	void loadSounds();
@@ -26,7 +31,7 @@ public:
 private:
 	Deck mDeck;
 	vector<CardInPlay> mCardsInPlay;
-	vector<int> mCardsSelected;
+	vector<sf::Int32> mCardsSelected;
 
 	sf::SoundBuffer mBuffers[4];
 	sf::Sound mSounds[4];
@@ -40,4 +45,6 @@ private:
 
 	sf::Int32 mScore;
 	sf::Text mScoreDisplay;
+
+	sf::TcpSocket mSocket;
 };

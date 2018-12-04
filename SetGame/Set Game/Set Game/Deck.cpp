@@ -25,8 +25,8 @@ void Deck::buildDeck(int deckSize, int difficulty)
 	}
 }
 
-void Deck::shuffle() {
-	srand(time(NULL));
+void Deck::shuffle(sf::Int32 seed) {
+	srand(seed);
 	for (int i = 0; i < 200; i++)
 	{
 		for (int j = 0; j < mCardDeck.size(); j++)
