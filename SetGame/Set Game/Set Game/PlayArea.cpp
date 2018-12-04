@@ -8,6 +8,22 @@ PlayArea::PlayArea()
 
 	if (!mFont.loadFromFile("Fonts/comic.ttf"))
 		cout << "Error Loading font." << endl;
+
+	mGameMessage.setFont(mFont);
+	mGameMessage.setCharacterSize(42);
+	mGameMessage.setPosition(sf::Vector2f(1060, 140));
+	mGameMessage.setColor(sf::Color(0, 0, 0, 0));
+
+	mMenuButton.setFont(mFont);
+	mMenuButton.setCharacterSize(42);
+	mMenuButton.setPosition(sf::Vector2f(1060, 640));
+	mMenuButton.setString("Main Menu");
+
+	mScore = 0;
+	mScoreDisplay.setFont(mFont);
+	mScoreDisplay.setCharacterSize(42);
+	mScoreDisplay.setPosition(sf::Vector2f(1060, 80));
+	mScoreDisplay.setString("Score: 0");
 }
 
 void PlayArea::drawPlayArea(sf::RenderWindow & window)
@@ -76,8 +92,8 @@ void PlayArea::cardClickCheck(sf::RenderWindow & window)
 {
 	for (int i = 0; i < mCardsInPlay.size(); i++)
 	{
-		sf::Vector2f adjusted_mouse_position = window.mapPixelToCoords((sf::Mouse::getPosition(window)));
-		if (mCardsInPlay[i].getGlobalBounds().contains(adjusted_mouse_position))
+		mAdjustedMousePosition = window.mapPixelToCoords((sf::Mouse::getPosition(window)));
+		if (mCardsInPlay[i].getGlobalBounds().contains(mAdjustedMousePosition))
 		{
 			mCardsInPlay[i].switchSelected();
 
@@ -105,21 +121,6 @@ void PlayArea::cardClickCheck(sf::RenderWindow & window)
 
 void PlayArea::singlePlayerMode(sf::RenderWindow & window)
 {
-
-	sf::Text gameMessage;
-	gameMessage.setFont(mFont);
-	gameMessage.setCharacterSize(42);
-	gameMessage.setPosition(sf::Vector2f(1060, 80));
-	gameMessage.setColor(sf::Color(0, 0, 0, 0));
-
-	sf::Text menuButton;
-	menuButton.setFont(mFont);
-	menuButton.setCharacterSize(42);
-	menuButton.setPosition(sf::Vector2f(1060, 640));
-	menuButton.setString("Main Menu");
-
-	sf::Vector2f adjusted_mouse_position;
-
 	Stopwatch timeDisplay(sf::Vector2f(1060, 20));
 	timeDisplay.start();
 	bool gameOver = false;
@@ -136,10 +137,10 @@ void PlayArea::singlePlayerMode(sf::RenderWindow & window)
 			else if (event.type == sf::Event::MouseButtonPressed)
 			{
 				cardClickCheck(window);
-				gameMessage.setColor(sf::Color(0, 0, 0, 0));
+				mGameMessage.setColor(sf::Color(0, 0, 0, 0));
 
-				adjusted_mouse_position = window.mapPixelToCoords((sf::Mouse::getPosition(window)));
-				if (menuButton.getGlobalBounds().contains(adjusted_mouse_position))
+				mAdjustedMousePosition = window.mapPixelToCoords((sf::Mouse::getPosition(window)));
+				if (mMenuButton.getGlobalBounds().contains(mAdjustedMousePosition))
 				{
 					gameOver = true;
 				}
@@ -152,19 +153,7 @@ void PlayArea::singlePlayerMode(sf::RenderWindow & window)
 			// Check if selected cards make a SET
 			if (isSet(mCardsInPlay[mCardsSelected[0]], mCardsInPlay[mCardsSelected[1]], mCardsInPlay[mCardsSelected[2]]))
 			{
-				// If they do remove them
-				for (int i = 0; i < mCardsInPlay.size();)
-				{
-					if (mCardsInPlay[i].isSelected()) {
-						mCardsInPlay.erase(mCardsInPlay.begin() + i);
-					}
-					else {
-						i++;
-					}
-				}
-				mSounds[2].play();
-				gameMessage.setString("SET!");
-				gameMessage.setColor(sf::Color(200, 255, 200, 255));
+				setFound(); // If they do remove them
 			}
 			else
 			{
@@ -176,8 +165,8 @@ void PlayArea::singlePlayerMode(sf::RenderWindow & window)
 					}
 				}
 				mSounds[3].play();
-				gameMessage.setString("Not a set.");
-				gameMessage.setColor(sf::Color(255, 100, 100, 255));
+				mGameMessage.setString("Not a set.");
+				mGameMessage.setColor(sf::Color(255, 100, 100, 255));
 			}
 
 			//clear cards selected
@@ -196,25 +185,44 @@ void PlayArea::singlePlayerMode(sf::RenderWindow & window)
 		{
 			// Final display
 			timeDisplay.stop();
-			gameMessage.setString("Game Complete!");
-			gameMessage.setColor(sf::Color(255, 255, 255, 255));
-			gameMessage.setPosition(sf::Vector2f(960, 80));
+			mGameMessage.setString("Game Complete!");
+			mGameMessage.setColor(sf::Color(255, 255, 255, 255));
+			mGameMessage.setPosition(sf::Vector2f(960, 140));
 		}
 
-		adjusted_mouse_position = window.mapPixelToCoords((sf::Mouse::getPosition(window)));
-		if (menuButton.getGlobalBounds().contains(adjusted_mouse_position))
-			menuButton.setColor(sf::Color(127, 255, 127, 255));
+		mAdjustedMousePosition = window.mapPixelToCoords((sf::Mouse::getPosition(window)));
+		if (mMenuButton.getGlobalBounds().contains(mAdjustedMousePosition))
+			mMenuButton.setColor(sf::Color(127, 255, 127, 255));
 		else
-			menuButton.setColor(sf::Color(255, 255, 255, 255));
+			mMenuButton.setColor(sf::Color(255, 255, 255, 255));
 
 
 		window.clear();
-		window.draw(gameMessage);
-		window.draw(menuButton);
+		window.draw(mGameMessage);
+		window.draw(mMenuButton);
+		window.draw(mScoreDisplay);
 		drawPlayArea(window);
 		timeDisplay.draw(window);
 		window.display();
 	}
+}
+
+void PlayArea::setFound()
+{
+	for (int i = 0; i < mCardsInPlay.size();)
+	{
+		if (mCardsInPlay[i].isSelected()) {
+			mCardsInPlay.erase(mCardsInPlay.begin() + i);
+		}
+		else {
+			i++;
+		}
+	}
+	mSounds[2].play();
+	mScore += 1;
+	mScoreDisplay.setString("Score: " + std::to_string(mScore));
+	mGameMessage.setString("SET!");
+	mGameMessage.setColor(sf::Color(200, 255, 200, 255));
 }
 
 void PlayArea::loadSounds()

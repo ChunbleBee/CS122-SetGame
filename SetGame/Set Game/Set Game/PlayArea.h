@@ -15,7 +15,11 @@ public:
 	bool isSet(Card const & c1, Card const & c2, Card const & c3); //Checks if three given cards are a set.
 	bool anySets(); // Checks if there are any sets in play.
 	void cardClickCheck(sf::RenderWindow & window); // Call where there is a click to select a card if the cursor is on a card.
+
 	void singlePlayerMode(sf::RenderWindow & window);
+
+	void setFound();
+
 
 	void loadSounds();
 
@@ -28,4 +32,12 @@ private:
 	sf::Sound mSounds[4];
 
 	sf::Font mFont;
+
+	sf::Text mGameMessage;
+	sf::Text mMenuButton;
+
+	sf::Vector2f mAdjustedMousePosition;
+
+	sf::Int32 mScore;
+	sf::Text mScoreDisplay;
 };
