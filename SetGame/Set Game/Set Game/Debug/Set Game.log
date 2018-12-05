@@ -1,8 +1,4 @@
-﻿  HowToPlay.cpp
-c:\users\max\documents\github\setgame\setgame\set game\set game\howtoplay.cpp(140): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\max\documents\github\setgame\setgame\set game\set game\howtoplay.cpp(141): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\max\documents\github\setgame\setgame\set game\set game\howtoplay.cpp(224): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\max\documents\github\setgame\setgame\set game\set game\howtoplay.cpp(225): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+﻿  main.cpp
   LINK : C:\Users\Max\Documents\GitHub\SetGame\SetGame\Set Game\Debug\Set Game.exe not found or not built by the last incremental link; performing full link
   Set Game.vcxproj -> C:\Users\Max\Documents\GitHub\SetGame\SetGame\Set Game\Debug\Set Game.exe
   Set Game.vcxproj -> C:\Users\Max\Documents\GitHub\SetGame\SetGame\Set Game\Debug\Set Game.pdb (Full PDB)
