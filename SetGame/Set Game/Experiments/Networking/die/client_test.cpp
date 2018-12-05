@@ -1,6 +1,5 @@
 #include <iostream>
 #include <SFML/Network.hpp>
-#include "Client.hpp"
 
 int main(void) {
 
@@ -10,14 +9,15 @@ int main(void) {
         std::cout << "Could not connect to server" << std::endl;
     }
 
-    Message * buffer = new Message();
+    while (true) {
+        int test = 43;
+        std::cin >> test;
 
-    buffer->packet << "f5nt5stic test";
-    buffer->event_name = "test_event";
-
-    if (socket.send(buffer, sizeof(buffer)) != sf::Socket::Done) {
-        std::cout << "Failed to send buffer!" << std::endl;
+        if (socket.send(&test, sizeof(test)) != sf::Socket::Done) {
+            std::cout << "Failed to send buffer!" << std::endl;
+        }
     }
+
 
     return 0;
 }
