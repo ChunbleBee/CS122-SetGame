@@ -1,10 +1,11 @@
 #include <iostream>
 #include <SFML/Network.hpp>
+#include "Client.hpp"
 
 int main(void) {
     sf::TcpListener listener;
 
-    if (listener.listen(53000) != sf::Socket::Done) {
+    if (listener.listen(53002) != sf::Socket::Done) {
         std::cout << "Error getting port" << std::endl;
     }
 
@@ -13,16 +14,14 @@ int main(void) {
         std::cout << "Error getting client" << std::endl;
     }
 
-    std::cout << "Got a client!!" << std::endl;
-
-    char buffer[100];
+    Message test;
     size_t size;
-    if (client.receive(buffer, 100, size) != sf::Socket::Done) {
+    if (client.receive(&test, sizeof(test), size) != sf::Socket::Done) {
         std::cout << "Error getting data" << std::endl;
     }
 
     std::cout << "Got data!! Size: " << size << std::endl;
-    std::cout << buffer << std::endl;
+    std::cout << test.event_name << std::endl;
 
     return 0;
 }

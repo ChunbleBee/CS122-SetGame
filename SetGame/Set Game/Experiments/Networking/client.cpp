@@ -1,19 +1,19 @@
-#include <iostream>
-#include <SFML/Network.hpp>
+#include "Client.hpp"
 
-int main(void) {
-    sf::TcpSocket socket;
-    sf::Socket::Status status = socket.connect("127.0.0.1", 53000);
+Client::Client(std::string ip_address, unsigned short port) {
+    sf::Socket::Status status = socket.connect(ip_address, port);
+
     if (status != sf::Socket::Done) {
-        std::cout << "Could not connect to server" << std::endl;
+        exit(1);
     }
 
-    char buffer[100];
-    std::cout << "Please enter a message to send: ";
-    std::cin >> buffer;
-    if (socket.send(buffer, 100) != sf::Socket::Done) {
-        std::cout << "Failed to send buffer!" << std::endl;
-    }
+    socket.setBlocking(false);
+};
 
-    return 0;
-}
+Client::~Client() {
+
+};
+
+void Client::SendMessage(Message * message) {
+    socket.send(message, sizeof(message));
+};
