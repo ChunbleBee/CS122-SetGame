@@ -157,6 +157,7 @@
     <ClCompile Include="PlayArea.cpp" />
     <ClCompile Include="PlayGame.cpp" />
     <ClCompile Include="Stopwatch.cpp" />
+    <ClCompile Include="Test.cpp" />
     <ClCompile Include="TextBox.cpp" />
     <ClCompile Include="TransformationAnimation.cpp" />
   </ItemGroup>
@@ -170,6 +171,7 @@
     <ClInclude Include="PlayArea.h" />
     <ClInclude Include="PlayGame.h" />
     <ClInclude Include="Stopwatch.h" />
+    <ClInclude Include="Test.h" />
     <ClInclude Include="TextBox.h" />
     <ClInclude Include="TransformationAnimation.h" />
   </ItemGroup>

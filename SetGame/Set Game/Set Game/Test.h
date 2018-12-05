@@ -28,7 +28,7 @@ public:
 
 	bool testIsSet();
 	
+	bool testAnySets();
 
-	bool testAnySets(); //?
-	bool testNetworking(); //?
+	bool testOverriddenSetSelected();
 };

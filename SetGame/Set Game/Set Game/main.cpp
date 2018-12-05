@@ -5,12 +5,12 @@
 #include "Menu.h"
 #include "HowToPlay.h"
 
-#include "Test.cpp"
+#include "Test.h"
 
 int main()
 {
 
-	//Test t;
+	Test t;
 
 	sf::RenderWindow window;
 	window.create(sf::VideoMode(1280, 720), "Set Game");

@@ -8,13 +8,13 @@ Test::Test()
 		{
 			if (testIsSet())
 			{
-				/*
-					if(){
-						if (){
-							cout << "All tests passed!" << endl;
-						}
+				if(testAnySets())
+				{
+					if (testOverriddenSetSelected())
+					{
+						cout << "All tests passed!" << endl;
 					}
-				*/	
+				}
 			}
 		}
 	}
@@ -297,4 +297,37 @@ bool Test::testIsSet()
 		cout << "Failed trivial set!" << endl;
 	}
 	return false;
+}
+
+bool Test::testAnySets()
+{
+	PlayArea testSpread;
+	cout << "Testing anySets... ";
+	if (testSpread.anySets()) // test on empty play area
+	{
+		cout << "Failed: false positive on anySets!" << endl;
+		return false;
+	}
+	else
+	{
+		cout << "Passed: negetive on anySets with empty play area!" << endl;
+		return true;
+	}
+}
+
+bool Test::testOverriddenSetSelected()
+{
+	CardInPlay testCardInPlay;
+	Card * testCardPtr = &testCardInPlay;
+	testCardPtr->setSelected(true);
+	if (testCardInPlay.sf::Sprite::getColor() == sf::Color(255, 255, 255, 127))
+	{
+		cout << "Passed: overridden setSelected called" << endl;
+		return true;
+	}
+	else
+	{
+		cout << "Failed: overridden SetSelected not called" << endl;
+		return false;
+	}
 }
