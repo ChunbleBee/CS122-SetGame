@@ -214,6 +214,7 @@ void PlayArea::hostMultiplayer(sf::RenderWindow & window)
 	mDeck.shuffle(seed);
 
 
+	// this function is the same as single player from here down (for now)
 
 	Stopwatch timeDisplay(sf::Vector2f(1060, 20));
 	timeDisplay.start();
@@ -307,6 +308,7 @@ void PlayArea::clientMultiplayer(sf::RenderWindow & window)
 	mDeck.shuffle(seed);
 
 
+	// this function is the same as single player from here down (for now)
 
 	Stopwatch timeDisplay(sf::Vector2f(1060, 20));
 	timeDisplay.start();
