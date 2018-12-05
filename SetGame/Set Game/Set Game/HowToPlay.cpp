@@ -238,7 +238,7 @@ void HowToPlay::pageFour(sf::RenderWindow & window)
 	sf::Text text;
 	text.setFont(mFont);
 	text.setCharacterSize(42);
-	text.setString("The game ends when the deck is empty and the cards in play \ncannot make a Set.");
+	text.setString("The game ends when the deck is empty and the cards in play \ncannot make a Set.\n\nIn multiplayer both players start with the same deck. \nTry to finish the game before your opponent!");
 
 	sf::Text text2;
 	text2.setFont(mFont);
